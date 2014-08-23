@@ -13,13 +13,10 @@ import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javax.annotation.Generated;
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,56 +29,40 @@ import javax.persistence.OneToMany;
  *
  * @author dennis
  */
-
 @Entity
-public class Student implements Serializable {
+public class Time implements Serializable {
+
     private IntegerProperty id;
-    private StringProperty fname;
-    private StringProperty lname;
-    private ListProperty<Subject> subjects;
+    private IntegerProperty time;
     private ListProperty<Schedule> schedules;
     
-    public Student(){
+    
+    public Time(){
         this.id = new SimpleIntegerProperty();
-        this.fname = new SimpleStringProperty();
-        this.lname = new SimpleStringProperty();
-        this.subjects = new SimpleListProperty<>();
+        this.time = new SimpleIntegerProperty();
         this.schedules = new SimpleListProperty<>();
     }
-    public Student(String fname, String lname){
+    public Time(int time){
         this();
-        this.fname.set(lname);
-        this.lname.set(lname);
+        this.time.set(time);
     }
-    
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id")
     public int getId(){
         return this.id.get();
     }
     public void setId(int id){
         this.id.set(id);
     }
-    
-    public String getFname(){
-        return this.fname.get();
+    public int getTime(){
+        return this.time.get();
     }
-     public void setFname(String fname){
-        this.fname.set(fname);
-    }
-    
-    public String getLname(){
-        return this.lname.get();
-    }
-    public void setLname(String lname){
-        this.lname.set(lname);
+    public void setTime(int time){
+        this.time.set(time);
     }
     
+    @OneToMany(mappedBy = "time")
     
-
-    @OneToMany(mappedBy = "student")
     public List<Schedule> getSchedules(){
         return this.schedules.get();
     }
@@ -89,10 +70,4 @@ public class Student implements Serializable {
         ObservableList<Schedule> schedule = FXCollections.observableArrayList(schedules);
         this.schedules.set(schedule);
     }
-
-       
 }
-
-
-
-

@@ -8,91 +8,85 @@ package system.business.models;
 
 import java.io.Serializable;
 import java.util.List;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
  *
  * @author dennis
  */
-
 @Entity
-public class Student implements Serializable {
+public class Course implements Serializable {
     private IntegerProperty id;
-    private StringProperty fname;
-    private StringProperty lname;
+    private StringProperty courseName;
+    private StringProperty courseDesc;
     private ListProperty<Subject> subjects;
-    private ListProperty<Schedule> schedules;
     
-    public Student(){
+    public Course(){
         this.id = new SimpleIntegerProperty();
-        this.fname = new SimpleStringProperty();
-        this.lname = new SimpleStringProperty();
+        this.courseName = new SimpleStringProperty();
+        this.courseDesc = new SimpleStringProperty();
         this.subjects = new SimpleListProperty<>();
-        this.schedules = new SimpleListProperty<>();
+       
     }
-    public Student(String fname, String lname){
+    public Course(String courseName, String courseCode, String courseDesc){
         this();
-        this.fname.set(lname);
-        this.lname.set(lname);
+        this.courseName.set(courseName);
+        this.courseDesc.set(courseDesc);
+        
+        
     }
-    
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId(){
         return this.id.get();
     }
     public void setId(int id){
         this.id.set(id);
     }
-    
-    public String getFname(){
-        return this.fname.get();
-    }
-     public void setFname(String fname){
-        this.fname.set(fname);
-    }
-    
-    public String getLname(){
-        return this.lname.get();
-    }
-    public void setLname(String lname){
-        this.lname.set(lname);
-    }
-    
-    
 
-    @OneToMany(mappedBy = "student")
-    public List<Schedule> getSchedules(){
-        return this.schedules.get();
+    @Column (name = "coursename")
+    public String getCourseName(){
+        return this.courseName.get();
     }
-    public void setSchedules(List<Schedule> schedules){
-        ObservableList<Schedule> schedule = FXCollections.observableArrayList(schedules);
-        this.schedules.set(schedule);
+    public void setCourseName(String courseName){
+        this.courseName.set(courseName);
     }
 
-       
+    @Column (name = "coursedesc")
+    public String getCourseDesc(){
+        return this.courseDesc.get();
+    }
+    public void setCourseDesc(String courseDesc){
+        this.courseDesc.set(courseDesc);
+    }
+   
+    
+    @OneToMany(mappedBy = "course")
+    public List<Subject> getSubjects(){
+        return this.subjects.get();
+    }
+    public void setSubjects(List<Subject> subjects){
+        ObservableList<Subject> subject = FXCollections.observableArrayList(subjects);
+        this.subjects.set(subject);
+    }
+    
+    
 }
-
-
-
-

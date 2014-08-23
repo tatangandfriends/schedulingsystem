@@ -32,65 +32,74 @@ import javax.persistence.OneToMany;
  *
  * @author dennis
  */
-
 @Entity
-public class Student implements Serializable {
+public class Teacher implements Serializable {
+
     private IntegerProperty id;
-    private StringProperty fname;
-    private StringProperty lname;
+    private StringProperty fName;
+    private StringProperty lName;
+    private ObjectProperty<Department> department;
     private ListProperty<Subject> subjects;
     private ListProperty<Schedule> schedules;
     
-    public Student(){
+    public Teacher(){
         this.id = new SimpleIntegerProperty();
-        this.fname = new SimpleStringProperty();
-        this.lname = new SimpleStringProperty();
-        this.subjects = new SimpleListProperty<>();
+        this.fName = new SimpleStringProperty();
+        this.lName = new SimpleStringProperty();
+        this.subjects= new SimpleListProperty<>();
         this.schedules = new SimpleListProperty<>();
+        this.department = new SimpleObjectProperty<>();
     }
-    public Student(String fname, String lname){
+    public Teacher(String fName, String lName){
         this();
-        this.fname.set(lname);
-        this.lname.set(lname);
+        this.lName.set(lName);
+        this.fName.set(fName);
     }
-    
-    
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id")
     public int getId(){
         return this.id.get();
     }
     public void setId(int id){
         this.id.set(id);
     }
-    
-    public String getFname(){
-        return this.fname.get();
+    @Column (name = "first_name")
+    public String getFName(){
+        return this.fName.get();
     }
-     public void setFname(String fname){
-        this.fname.set(fname);
+     public void setFName(String fName){
+        this.fName.set(fName);
+    }
+    @Column (name = "last_name")
+    public String getLName(){
+        return this.lName.get();
+    }
+    public void setLName(String lName){
+        this.lName.set(lName);
     }
     
-    public String getLname(){
-        return this.lname.get();
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "department")
+    
+    public Department getDepartment(){
+        return this.department.get();
     }
-    public void setLname(String lname){
-        this.lname.set(lname);
+    public void setDepartment(Department department){
+        this.department.set(department);
     }
     
-    
-
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "teacher")
     public List<Schedule> getSchedules(){
         return this.schedules.get();
     }
     public void setSchedules(List<Schedule> schedules){
-        ObservableList<Schedule> schedule = FXCollections.observableArrayList(schedules);
+            ObservableList<Schedule> schedule = FXCollections.observableArrayList(schedules);
         this.schedules.set(schedule);
     }
 
-       
+        
 }
 
 
