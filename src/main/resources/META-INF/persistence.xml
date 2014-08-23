@@ -3,6 +3,13 @@
   <persistence-unit name="SchedulingSystemPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>system.business.models.Student</class>
+    <class>system.business.models.Course</class>
+    <class>system.business.models.Department</class>
+    <class>system.business.models.Room</class>
+    <class>system.business.models.Schedule</class>
+    <class>system.business.models.Subject</class>
+    <class>system.business.models.Teacher</class>
+    <class>system.business.models.Time</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/testdb"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
