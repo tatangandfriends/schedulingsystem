@@ -36,28 +36,26 @@ import javax.persistence.OneToMany;
 @NamedQueries({
 @NamedQuery(name = "Course.findAll", query = "SELECT c FROM Course c"),
     @NamedQuery(name = "Course.findById", query = "SELECT c FROM Course c WHERE c.id = :id"),
-    @NamedQuery(name = "Course.findByCourseName", query = "SELECT c FROM Course c WHERE c.courseName = :courseName"),
     @NamedQuery(name = "Course.findByCourseDesc", query = "SELECT c FROM Course c WHERE c.courseDesc = :courseDesc"),
+    @NamedQuery(name = "Course.findByCourse", query = "SELECT c FROM Course c WHERE c.courseCode = :courseCode")
     })
 public class Course implements Serializable {
     private IntegerProperty id;
-    private StringProperty courseName;
+    private StringProperty courseCode;
     private StringProperty courseDesc;
-    private ListProperty<Subject> subjects;
+    private ListProperty<Student> students;
     
     public Course(){
         this.id = new SimpleIntegerProperty();
-        this.courseName = new SimpleStringProperty();
+        this.courseCode = new SimpleStringProperty();
         this.courseDesc = new SimpleStringProperty();
-        this.subjects = new SimpleListProperty<>();
+        this.students = new SimpleListProperty<>();
        
     }
-    public Course(String courseName, String courseCode, String courseDesc){
+    public Course(String courseCode){
         this();
-        this.courseName.set(courseName);
-        this.courseDesc.set(courseDesc);
-        
-        
+        this.courseCode.set(courseCode);
+     
     }
     
     @Id
@@ -70,12 +68,12 @@ public class Course implements Serializable {
         this.id.set(id);
     }
 
-    @Column (name = "coursename")
-    public String getCourseName(){
-        return this.courseName.get();
+    @Column (name = "coursecode")
+    public String getCourseCode(){
+        return this.courseCode.get();
     }
-    public void setCourseName(String courseName){
-        this.courseName.set(courseName);
+    public void setCourseCode(String courseCode){
+        this.courseCode.set(courseCode);
     }
 
     @Column (name = "coursedesc")
@@ -88,13 +86,16 @@ public class Course implements Serializable {
    
     
     @OneToMany(mappedBy = "course")
-    public List<Subject> getSubjects(){
-        return this.subjects.get();
+    public List<Student> getStudents(){
+        return this.students.get();
     }
-    public void setSubjects(List<Subject> subjects){
-        ObservableList<Subject> subject = FXCollections.observableArrayList(subjects);
-        this.subjects.set(subject);
+    public void setStudents(List<Student> students){
+        ObservableList<Student> student = FXCollections.observableArrayList(students);
+        this.students.set(student);
     }
     
-    
+    @Override
+    public String toString(){
+        return getCourseCode();
+    }
 }

@@ -90,7 +90,7 @@ public class Subject implements Serializable {
      public void setSubCode(String subCode){
         this.subCode.set(subCode);
     }
-    @Column(name = "column")
+    @Column(name = "unit")
     public int getUnit(){
         return this.unit.get();
     }
@@ -98,7 +98,7 @@ public class Subject implements Serializable {
         this.id.set(unit);
     }
      
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "schedule")
     public Schedule getSchedule(){
         return this.schedule.get();
@@ -106,14 +106,7 @@ public class Subject implements Serializable {
     public void setSchedule(Schedule schedule){
         this.schedule.set(schedule);
     }
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "course")
-    public Course getCourse(){
-        return this.course.get();
-    }
-    public void setCourse(Course course){
-        this.course.set(course);
-    }
+    
    
 }
 

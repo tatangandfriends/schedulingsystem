@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import system.business.models.Course;
 import system.business.models.Student;
 
 /**
@@ -43,5 +44,15 @@ public class StudentService {
        return query.getResultList();       
    }
    
+   public List<Course> findCourseAll(String name){
+         return this.service.getEM().createNamedQuery("Course.findByCourse").setParameter("courseCode", "%" + name + "%").getResultList();
+     }
+   public Course findCourse(String name){
+         return (Course)this.service.getEM().createNamedQuery("Course.findByCourse")
+                 .setParameter("courseCode", name).getSingleResult();
+     }
+   public List<Course> findAllCourse(){
+       return this.service.getEM().createNamedQuery("Course.findAll").getResultList();
+   }
     
 }

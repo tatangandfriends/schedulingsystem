@@ -24,6 +24,7 @@ import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import system.presenter.main.MainView;
 
 /**
@@ -34,8 +35,9 @@ public class App extends Application {
 
     @Override
      public void start(Stage stage) throws Exception {
-        Parent root = new MainView().getView();        
-        Scene scene = new Scene(root);        
+        MainView mainView = new MainView();        
+        Scene scene = new Scene(mainView.getView()); 
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }

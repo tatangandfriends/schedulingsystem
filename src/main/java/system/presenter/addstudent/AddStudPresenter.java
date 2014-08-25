@@ -23,6 +23,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -33,7 +34,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
+import javafx.util.Callback;
 import javax.inject.Inject;
+import system.business.models.Course;
 import system.business.models.Student;
 import system.business.services.StudentService;
 import system.presenter.main.MainView;
@@ -116,6 +119,28 @@ public class AddStudPresenter implements Initializable {
         columns.add(firstNameColumn);
         final TableColumn lastNameColumn = createTextColumn("lname", "Last Name");
         columns.add(lastNameColumn);
+        TableColumn<Student, Course> courseColumn= new TableColumn<>("Course");
+        courseColumn.setCellValueFactory(new PropertyValueFactory<>("course"));
+        courseColumn.setCellFactory(new Callback<TableColumn<Student, Course>, TableCell<Student, Course>>() {
+        @Override
+        public TableCell<Student, Course> call(TableColumn<Student, Course> param) {
+        return new TableCell<Student, Course>() {
+            @Override
+            protected void updateItem(Course item, boolean empty) {
+                super.updateItem(item, empty);
+                if(!empty){
+                    if(item != null){
+                        setText(item.getCourseCode());
+                    }
+                    
+                }else {
+                setText(null);
+              }
+            }
+        };
+        }
+        });
+       columns.add(courseColumn);
         studentTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         studentTable.setItems(students);
         studentTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);        

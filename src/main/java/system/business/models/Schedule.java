@@ -66,7 +66,7 @@ public class Schedule implements Serializable {
         this.id.set(id);
     }
         
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "teacher")
      public Teacher getTeacher(){
          return this.teacher.get();
@@ -76,7 +76,7 @@ public class Schedule implements Serializable {
          this.teacher.set(teacher);
      }
      
-     @ManyToOne(cascade = CascadeType.ALL)
+     @ManyToOne
      @JoinColumn(name = "student")
      public Student getStudent(){
          return this.student.get();
@@ -84,7 +84,7 @@ public class Schedule implements Serializable {
      public void setStudent (Student student){
          this.student.set(student);
      }
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "room")
     public Room getRoom(){
         return this.room.get();
@@ -102,7 +102,7 @@ public class Schedule implements Serializable {
         this.subjects.set(subject);
     }
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     public Time getTime(){
         return this.time.get();
     }

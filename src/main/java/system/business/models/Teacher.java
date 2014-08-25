@@ -91,7 +91,7 @@ public class Teacher implements Serializable {
     }
     
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "department")
     
     public Department getDepartment(){

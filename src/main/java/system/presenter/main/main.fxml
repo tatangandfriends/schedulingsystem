@@ -12,10 +12,16 @@
         <menus>
           <Menu mnemonicParsing="false" text="Student">
             <items>
-              <MenuItem mnemonicParsing="false" text="Add Student" onAction="#addStud" />
+              <MenuItem fx:id="addStud" mnemonicParsing="false" onAction="#addStud" text="Add Student" />
               
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Teacher">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#addStud" text="Add Teacher" />
+                  <MenuItem mnemonicParsing="false" onAction="#addStud" text="Add Department" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
    </children>

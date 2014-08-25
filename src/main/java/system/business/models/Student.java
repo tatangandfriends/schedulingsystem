@@ -51,6 +51,7 @@ public class Student implements Serializable {
     private StringProperty lname;
     private ListProperty<Subject> subjects;
     private ListProperty<Schedule> schedules;
+    private ObjectProperty<Course> course;
     
     public Student(){
         this.id = new SimpleIntegerProperty();
@@ -58,6 +59,7 @@ public class Student implements Serializable {
         this.lname = new SimpleStringProperty();
         this.subjects = new SimpleListProperty<>();
         this.schedules = new SimpleListProperty<>();
+        this.course = new SimpleObjectProperty<>();
     }
     public Student(String fname, String lname){
         this();
@@ -99,6 +101,15 @@ public class Student implements Serializable {
     public void setSchedules(List<Schedule> schedules){
         ObservableList<Schedule> schedule = FXCollections.observableArrayList(schedules);
         this.schedules.set(schedule);
+    }
+    
+    @ManyToOne
+    @JoinColumn(name = "course")
+    public Course getCourse(){
+        return this.course.get();
+    }
+    public void setCourse(Course course){
+        this.course.set(course);
     }
 
        

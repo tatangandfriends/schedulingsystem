@@ -8,8 +8,9 @@
 
 <AnchorPane id="AnchorPane" fx:id="currentPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.studentinput.StudentinputPresenter">
    <children>
-      <Button fx:id="saveBtn" layoutX="88.0" layoutY="175.0" mnemonicParsing="false" onAction="#saveStudent"  text="Save" />
+      <Button fx:id="saveBtn" layoutX="88.0" layoutY="214.0" mnemonicParsing="false" onAction="#saveStudent" text="Save" />
       <TextField fx:id="lastNameField" layoutX="88.0" layoutY="131.0" promptText="lastname" />
       <TextField fx:id="firstNameField" layoutX="88.0" layoutY="91.0" promptText="firstname" />
+      <ComboBox fx:id="courseCb" layoutX="88.0" layoutY="175.0" onAction="#preparedCourseBox" prefWidth="150.0" promptText="Course" />
    </children>
 </AnchorPane>
