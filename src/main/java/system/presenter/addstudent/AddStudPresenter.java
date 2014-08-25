@@ -37,6 +37,7 @@ import javax.inject.Inject;
 import system.business.models.Student;
 import system.business.services.StudentService;
 import system.presenter.main.MainView;
+import system.presenter.studentinput.StudentinputPresenter;
 import system.presenter.studentinput.StudentinputView;
 
 /**
@@ -55,6 +56,9 @@ public class AddStudPresenter implements Initializable {
     private TextField searchField;
     @FXML
     private Button addBtn;
+    @FXML
+    private Button editBtn;
+    
    
     @FXML
     private StackPane stackPane;
@@ -102,6 +106,8 @@ public class AddStudPresenter implements Initializable {
         anchorPane.getChildren().clear();
         anchorPane.getChildren().add(new StudentinputView().getView());
     }
+    
+    
     private void prepareTable(){
         studentTable = new TableView<>();
         this.studentTable.setEditable(false);
@@ -123,9 +129,22 @@ public class AddStudPresenter implements Initializable {
         return column;
     }
     
+    
+    
     private void sarche(){
         if(!searchField.getText().isEmpty()){
            getAllFromDB();
+        }
+    }
+    @FXML
+    private void editStudent(ActionEvent event) {
+        if(studentTable.getSelectionModel().getSelectedItem() != null){
+            StudentinputView sIv = new StudentinputView();                    
+            StudentinputPresenter sIP= (StudentinputPresenter) sIv.getPresenter();
+            sIP.getSelectedStudent().set(studentTable.getSelectionModel().getSelectedItem());
+//            selectedEmployee.bindBidirectional(eIP.getSelectedEmployee());
+            anchorPane.getChildren().clear();
+            anchorPane.getChildren().add(sIv.getView());
         }
     }
     

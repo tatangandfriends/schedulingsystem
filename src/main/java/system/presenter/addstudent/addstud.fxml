@@ -12,7 +12,7 @@
       <ComboBox fx:id="semesterCb" layoutX="360.0" layoutY="85.0" prefWidth="150.0" promptText="- Select Semester -" />
       <ComboBox fx:id="courseCb" layoutX="202.0" layoutY="85.0" prefWidth="150.0" promptText="-Select Course -" />
       <TextField fx:id="searchField" layoutX="31.0" layoutY="85.0" />
-      <Button layoutX="116.0" layoutY="375.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="PREVIEW" />
+      <Button fx:id="editBtn" layoutX="116.0" layoutY="375.0" mnemonicParsing="false" onAction="#editStudent" prefHeight="25.0" prefWidth="72.0" text="Edit" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="24.0" prefHeight="17.0" prefWidth="491.0" text="Centerpoint College of Arts and Sciences, Inc." textFill="#1ddb0f">
          <font>
             <Font name="System Bold" size="18.0" />
