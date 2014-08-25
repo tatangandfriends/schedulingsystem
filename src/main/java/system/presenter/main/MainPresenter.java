@@ -8,26 +8,55 @@ package system.presenter.main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
 import javax.inject.Inject;
 import system.business.services.StudentService;
+import system.presenter.studentinput.StudentinputPresenter;
+import system.presenter.studentinput.StudentinputView;
+import system.presenter.addstudent.AddStudPresenter;
+import system.presenter.addstudent.AddStudView;
 
-/**
- * FXML Controller class
- *
- * @author Telafas
- */
-public class MainPresenter implements Initializable {
+
+
+public class MainPresenter implements Initializable{
+    
+    @FXML
+    private MenuBar menuBar;
+    
+    @FXML
+    private AnchorPane anchorPane;
+    
+    @FXML
+    private MenuItem addStud;
+    
+    private AddStudPresenter addStudPresenter;
+ 
+    private StudentinputPresenter studentInputPresenter;
+    
+
+    
     
     @Inject
-    StudentService service;
+    StudentService ss;
     
-    /**
-     * Initializes the controller class.
-     */
-    @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    @FXML
+    private void addStud(ActionEvent event){
+        anchorPane.getChildren().clear();
+        anchorPane.getChildren().add(new AddStudView().getView());
+    }
+    @FXML
+    private void studentList(ActionEvent event){
+        anchorPane.getChildren().clear();
+        anchorPane.getChildren().add(new StudentinputView().getView());
+    }
     
-}
+    
+}    

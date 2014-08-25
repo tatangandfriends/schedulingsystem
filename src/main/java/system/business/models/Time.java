@@ -23,6 +23,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -30,6 +32,11 @@ import javax.persistence.OneToMany;
  * @author dennis
  */
 @Entity
+@NamedQueries({
+@NamedQuery(name = "Time.findAll", query = "SELECT t FROM Time t"),
+    @NamedQuery(name = "Time.findById", query = "SELECT t FROM Time t WHERE t.id = :id"),
+    @NamedQuery(name = "Time.findByTime", query = "SELECT t FROM Time t WHERE t.time = :time"),
+     })
 public class Time implements Serializable {
 
     private IntegerProperty id;

@@ -4,15 +4,14 @@
  * and open the template in the editor.
  */
 
-package system.presenter.main;
+package system.presenter.teacher;
 
 import com.airhacks.afterburner.views.FXMLView;
-import javafx.scene.Parent;
 
 /**
  *
  * @author dennis
  */
-public class MainView extends FXMLView{
+public class TeacherView extends FXMLView{
     
 }

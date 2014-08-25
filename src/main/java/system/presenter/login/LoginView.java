@@ -16,7 +16,7 @@ import javafx.fxml.Initializable;
  *
  * @author dennis
  */
-public class LoginController extends FXMLView{
+public class LoginView extends FXMLView{
     /**
      * Initializes the controller class.
      */

@@ -19,6 +19,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -26,11 +28,17 @@ import javax.persistence.OneToMany;
  * @author dennis
  */
 @Entity
+@NamedQueries({
+@NamedQuery(name = "Subject.findAll", query = "SELECT s FROM Subject s"),
+    @NamedQuery(name = "Subject.findById", query = "SELECT s FROM Subject s WHERE s.id = :id"),
+    @NamedQuery(name = "Subject.findBySubCode", query = "SELECT s FROM Subject s WHERE s.subCode = :subCode"),
+    
+   })
 public class Subject implements Serializable {
     
     private IntegerProperty id;
-    private StringProperty subjDesc;
-    private StringProperty subjCode;
+    private StringProperty subDesc;
+    private StringProperty subCode;
     private IntegerProperty unit;    
     private ObjectProperty<Student> student;
     private ObjectProperty<Teacher> teacher;
@@ -42,8 +50,8 @@ public class Subject implements Serializable {
     
     public Subject(){
         this.id = new SimpleIntegerProperty();
-        this.subjDesc = new SimpleStringProperty();
-        this.subjCode = new SimpleStringProperty();
+        this.subDesc = new SimpleStringProperty();
+        this.subCode = new SimpleStringProperty();
         this.unit = new SimpleIntegerProperty();
         this.teacher = new SimpleObjectProperty<>();
         this.student = new SimpleObjectProperty<>();
@@ -51,10 +59,10 @@ public class Subject implements Serializable {
         
     }
     
-    public Subject(int id, String subjName, String subjCode, int unit){
+    public Subject(int id, String subName, String subCode, int unit){
         this();
-        this.subjDesc.set(subjName);
-        this.subjCode.set(subjCode);
+        this.subDesc.set(subName);
+        this.subCode.set(subCode);
         this.unit.set(unit);
         
     }
@@ -69,18 +77,18 @@ public class Subject implements Serializable {
         this.id.set(id);
     }
     @Column (name = "subject_name")
-    public String getSubjName(){
-        return this.subjDesc.get();
+    public String getSubName(){
+        return this.subDesc.get();
     }
-     public void setSubjName(String subjDesc){
-        this.subjDesc.set(subjDesc);
+     public void setSubName(String subDesc){
+        this.subDesc.set(subDesc);
     }
     @Column (name = "subject_Code")
-    public String getSubjCode(){
-        return this.subjCode.get();
+    public String getSubCode(){
+        return this.subCode.get();
     }
-     public void setSubjCode(String subjCode){
-        this.subjCode.set(subjCode);
+     public void setSubCode(String subCode){
+        this.subCode.set(subCode);
     }
     @Column(name = "column")
     public int getUnit(){

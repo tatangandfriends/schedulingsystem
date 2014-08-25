@@ -22,6 +22,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -29,6 +31,10 @@ import javax.persistence.OneToMany;
  * @author dennis
  */
 @Entity
+@NamedQueries({
+@NamedQuery(name = "Schedule.findAll", query = "SELECT s FROM Schedule s"),
+    @NamedQuery(name = "Schedule.findById", query = "SELECT s FROM Schedule s WHERE s.id = :id"),
+    })
 public class Schedule implements Serializable {
     
     private IntegerProperty id;

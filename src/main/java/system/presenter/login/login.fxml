@@ -6,13 +6,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="system.presenter.login.LoginController">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.login.LoginController">
    <children>
       <Label layoutX="188.0" layoutY="135.0" text="User Name:" />
       <Label layoutX="188.0" layoutY="171.0" text="Password:" />
       <TextField fx:id="user" layoutX="263.0" layoutY="131.0" promptText="username" />
-      <Button layoutX="286.0" layoutY="228.0" mnemonicParsing="false" text="Login" />
+      <Button fx:id="loginBtn" layoutX="286.0" layoutY="228.0" mnemonicParsing="false" text="Login" />
       <PasswordField fx:id="pass" layoutX="263.0" layoutY="167.0" promptText="password" />
       <Label fx:id="message" layoutX="36.0" layoutY="49.0" prefHeight="17.0" prefWidth="528.0" />
    </children>

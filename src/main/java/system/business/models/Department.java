@@ -17,6 +17,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -24,6 +26,11 @@ import javax.persistence.OneToMany;
  * @author dennis
  */
 @Entity
+@NamedQueries({
+@NamedQuery(name = "Department.findAll", query = "SELECT te FROM Department te"),
+    @NamedQuery(name = "Department.findById", query = "SELECT te FROM Department te WHERE te.id = :id"),
+    @NamedQuery(name = "Department.findByDeptName", query = "SELECT te FROM Department te WHERE te.deptName = :deptName"),
+    })
 public class Department implements Serializable {
     private IntegerProperty id;
     private StringProperty deptName;

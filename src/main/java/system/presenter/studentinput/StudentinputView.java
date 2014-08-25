@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 
-package system.presenter.student;
+package system.presenter.studentinput;
+
+import com.airhacks.afterburner.views.FXMLView;
 
 /**
  *
  * @author dennis
  */
-public class StudentPresenter {
+public class StudentinputView extends FXMLView{
     
 }

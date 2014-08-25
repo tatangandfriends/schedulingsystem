@@ -26,34 +26,45 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author dennis
  */
 @Entity
+@Table(name="teacher")
+@NamedQueries({
+@NamedQuery(name = "Teacher.findAll", query = "SELECT te FROM Teacher te"),
+    @NamedQuery(name = "Teacher.findById", query = "SELECT te FROM Teacher te WHERE te.id = :id"),
+    @NamedQuery(name = "Teacher.findByFname", query = "SELECT te FROM Teacher te WHERE te.fname = :fname"),
+    @NamedQuery(name = "Teacher.findByLname", query = "SELECT te FROM Teacher te WHERE te.lname = :lname"),
+    @NamedQuery(name = "Teacher.findByTeacher", query = "SELECT te FROM Teacher te WHERE te.fname LIKE :fname OR te.lname LIKE :lname")
+   })
 public class Teacher implements Serializable {
 
     private IntegerProperty id;
-    private StringProperty fName;
-    private StringProperty lName;
+    private StringProperty fname;
+    private StringProperty lname;
     private ObjectProperty<Department> department;
     private ListProperty<Subject> subjects;
     private ListProperty<Schedule> schedules;
     
     public Teacher(){
         this.id = new SimpleIntegerProperty();
-        this.fName = new SimpleStringProperty();
-        this.lName = new SimpleStringProperty();
+        this.fname = new SimpleStringProperty();
+        this.lname = new SimpleStringProperty();
         this.subjects= new SimpleListProperty<>();
         this.schedules = new SimpleListProperty<>();
         this.department = new SimpleObjectProperty<>();
     }
-    public Teacher(String fName, String lName){
+    public Teacher(String fname, String lname){
         this();
-        this.lName.set(lName);
-        this.fName.set(fName);
+        this.lname.set(lname);
+        this.fname.set(fname);
     }
     @Id
     @Column(name = "id")
@@ -65,18 +76,18 @@ public class Teacher implements Serializable {
         this.id.set(id);
     }
     @Column (name = "first_name")
-    public String getFName(){
-        return this.fName.get();
+    public String getFname(){
+        return this.fname.get();
     }
-     public void setFName(String fName){
-        this.fName.set(fName);
+     public void setFname(String fname){
+        this.fname.set(fname);
     }
     @Column (name = "last_name")
-    public String getLName(){
-        return this.lName.get();
+    public String getLname(){
+        return this.lname.get();
     }
-    public void setLName(String lName){
-        this.lName.set(lName);
+    public void setLname(String lname){
+        this.lname.set(lname);
     }
     
     

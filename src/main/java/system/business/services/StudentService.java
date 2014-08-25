@@ -6,10 +6,13 @@
 
 package system.business.services;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import system.business.models.Student;
 
 /**
@@ -18,19 +21,27 @@ import system.business.models.Student;
  */
 public class StudentService {
     
-    EntityManager em;
-    EntityTransaction et;
-        
-    @PostConstruct
-    public void init(){
-        this.em = Persistence.createEntityManagerFactory("SchedulingSystemPU").createEntityManager();
-        this.et = em.getTransaction();
-    }
-    
-    public void save(Student s){
-        et.begin();
-        Student merged = em.merge(s);
-        et.commit();
-    }
+   @Inject
+   MainService service;
+   
+   public List<Student> getAll(){
+       return this.service.getEM().createNamedQuery("Student.findAll").getResultList();
+   }
+   
+   
+   public void save(Student s){
+       service.getET().begin();
+       Student merged = service.getEM().merge(s);
+       service.getET().commit();
+   }
+   
+   public List<Student> findByName(String name){
+       Query query = service.getEM().createNamedQuery("Student.findByFname");
+       query.setParameter("fname", "%" + name + "%");
+       query.setParameter("lname", "%" + name + "%");
+       
+       return query.getResultList();       
+   }
+   
     
 }

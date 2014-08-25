@@ -26,7 +26,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
@@ -34,6 +37,14 @@ import javax.persistence.OneToMany;
  */
 
 @Entity
+@Table(name="student")
+@NamedQueries({
+@NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s"),
+    @NamedQuery(name = "Student.findById", query = "SELECT s FROM Student s WHERE s.id = :id"),
+    @NamedQuery(name = "Student.findByFname", query = "SELECT s FROM Student s WHERE s.fname = :fname"),
+    @NamedQuery(name = "Student.findByLname", query = "SELECT s FROM Student s WHERE s.lname = :lname"),
+    @NamedQuery(name = "Student.findByStudent", query = "SELECT s FROM Student s WHERE s.fname LIKE :fname OR s.lname LIKE :lname")
+   })
 public class Student implements Serializable {
     private IntegerProperty id;
     private StringProperty fname;
