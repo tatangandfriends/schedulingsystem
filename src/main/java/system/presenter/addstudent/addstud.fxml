@@ -25,5 +25,6 @@
          </font>
       </Label>
       <StackPane fx:id="stackPane" layoutX="31.0" layoutY="124.0" prefHeight="202.0" prefWidth="482.0" />
+      <Button fx:id="clearButton" layoutX="527.0" layoutY="85.0" mnemonicParsing="false" onAction="#clearSelection" text="Clear" />
    </children>
 </AnchorPane>

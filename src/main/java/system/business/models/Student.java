@@ -43,7 +43,8 @@ import javax.persistence.Table;
     @NamedQuery(name = "Student.findById", query = "SELECT s FROM Student s WHERE s.id = :id"),
     @NamedQuery(name = "Student.findByFname", query = "SELECT s FROM Student s WHERE s.fname = :fname"),
     @NamedQuery(name = "Student.findByLname", query = "SELECT s FROM Student s WHERE s.lname = :lname"),
-    @NamedQuery(name = "Student.findByStudent", query = "SELECT s FROM Student s WHERE s.fname LIKE :fname OR s.lname LIKE :lname")
+    @NamedQuery(name = "Student.findByStudent", query = "SELECT s FROM Student s WHERE s.fname LIKE :fname OR s.lname LIKE :lname"),
+    @NamedQuery(name = "Student.byCourse", query = "SELECT s FROM Student s WHERE s.course = :course")
    })
 public class Student implements Serializable {
     private IntegerProperty id;

@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -54,13 +55,16 @@ public class AddStudPresenter implements Initializable {
     @FXML
     private ComboBox<?> semesterCb;
     @FXML
-    private ComboBox<?> courseCb;
+    private ComboBox<Course> courseCb;
     @FXML
     private TextField searchField;
     @FXML
     private Button addBtn;
     @FXML
     private Button editBtn;
+    @FXML
+    private Button clearButton;
+    private ObservableList<Course> courseList;
     
    
     @FXML
@@ -83,6 +87,8 @@ public class AddStudPresenter implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        courseList = FXCollections.observableArrayList(ss.findAllCourse());
+        courseCb.setItems(courseList);
         selectedStudent = new SimpleObjectProperty<>();
         students = FXCollections.observableArrayList();
         prepareTable();
@@ -99,6 +105,13 @@ public class AddStudPresenter implements Initializable {
             if(event.getCode() == KeyCode.ENTER){                   
                 
                 sarche();
+            }
+        });
+        
+       courseCb.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends Course> observable, Course oldValue, Course newValue) -> {
+           
+            if(newValue != oldValue){
+                getAllFromDB(); 
             }
         });
        
@@ -172,6 +185,12 @@ public class AddStudPresenter implements Initializable {
             anchorPane.getChildren().add(sIv.getView());
         }
     }
+    @FXML
+    private void clearSelection(ActionEvent event) {
+        courseCb.getSelectionModel().clearSelection();
+        searchField.setText("");
+        getAllFromDB();
+    }
     
     
      //load all candidates from DB
@@ -188,6 +207,9 @@ public class AddStudPresenter implements Initializable {
                 if(!searchField.getText().isEmpty()){
                     studentList = ss.findByName(searchField.textProperty().get());
                 }                
+                if(courseCb.getSelectionModel().getSelectedItem() != null){
+                    studentList = FXCollections.observableArrayList(ss.findByCourseCode(courseCb.getSelectionModel().getSelectedItem()));
+                }
                 Thread.sleep(5);
                 students = FXCollections.observableArrayList(studentList);                
                 return students;

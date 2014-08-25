@@ -44,6 +44,10 @@ public class StudentService {
        return query.getResultList();       
    }
    
+   public List<Student> findByCourseCode(Course course){
+       return service.getEM().createNamedQuery("Student.byCourse").setParameter("course", course).getResultList();
+   }
+   
    public List<Course> findCourseAll(String name){
          return this.service.getEM().createNamedQuery("Course.findByCourse").setParameter("courseCode", "%" + name + "%").getResultList();
      }
