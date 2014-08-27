@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import java.lang.*?>
+
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.main.MainPresenter">
-   <children>
-      <MenuBar fx:id="menuBar" layoutY="2.0" prefHeight="31.0" prefWidth="600.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="Student">
-            <items>
-              <MenuItem fx:id="addStud" mnemonicParsing="false" onAction="#addStud" text="Add Student" />
+    <children>
+        <MenuBar fx:id="menuBar" layoutY="2.0" prefHeight="31.0" prefWidth="600.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Student">
+                    <items>
+                        <MenuItem fx:id="addStud" mnemonicParsing="false" onAction="#addStud" text="Add Student" />
               
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Teacher">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#addStud" text="Add Teacher" />
-                  <MenuItem mnemonicParsing="false" onAction="#addStud" text="Add Department" />
-               </items>
-            </Menu>
-        </menus>
-      </MenuBar>
-   </children>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Teacher">
+                    <items>
+                        <MenuItem fx:id="addTeach" mnemonicParsing="false" onAction="#addTeacher" text="Add Teacher" />
+                        <MenuItem mnemonicParsing="false" onAction="#addStud" text="Add Department" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </children>
 </AnchorPane>

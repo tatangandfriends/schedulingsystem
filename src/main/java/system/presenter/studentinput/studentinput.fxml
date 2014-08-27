@@ -12,5 +12,6 @@
       <TextField fx:id="lastNameField" layoutX="88.0" layoutY="131.0" promptText="lastname" />
       <TextField fx:id="firstNameField" layoutX="88.0" layoutY="91.0" promptText="firstname" />
       <ComboBox fx:id="courseCb" layoutX="88.0" layoutY="175.0" onAction="#preparedCourseBox" prefWidth="150.0" promptText="Course" />
+      <Button fx:id="cancelBtn" layoutX="143.0" layoutY="214.0" mnemonicParsing="false" onAction="#cancelStudent" text="Cancel" />
    </children>
 </AnchorPane>

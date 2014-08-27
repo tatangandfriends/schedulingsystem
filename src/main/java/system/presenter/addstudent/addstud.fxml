@@ -11,14 +11,14 @@
    <children>
       <ComboBox fx:id="semesterCb" layoutX="360.0" layoutY="85.0" prefWidth="150.0" promptText="- Select Semester -" />
       <ComboBox fx:id="courseCb" layoutX="202.0" layoutY="85.0" prefWidth="150.0" promptText="-Select Course -" />
-      <TextField fx:id="searchField" layoutX="31.0" layoutY="85.0" />
-      <Button fx:id="editBtn" layoutX="116.0" layoutY="375.0" mnemonicParsing="false" onAction="#editStudent" prefHeight="25.0" prefWidth="72.0" text="Edit" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="24.0" prefHeight="17.0" prefWidth="491.0" text="Centerpoint College of Arts and Sciences, Inc." textFill="#1ddb0f">
+      <TextField fx:id="searchField" layoutX="31.0" layoutY="85.0" promptText="search" />
+      <Button fx:id="editBtn" layoutX="120.0" layoutY="342.0" mnemonicParsing="false" onAction="#editStudent" prefHeight="25.0" prefWidth="72.0" text="Edit" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" prefHeight="62.0" prefWidth="527.0" text="Centerpoint College of Arts and Sciences, Inc." textFill="#1ddb0f">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="addBtn" layoutX="31.0" layoutY="375.0" mnemonicParsing="false" onAction="#studentList" prefHeight="25.0" prefWidth="72.0" text="ADD" />
+      <Button fx:id="addBtn" layoutX="35.0" layoutY="342.0" mnemonicParsing="false" onAction="#studentList" prefHeight="25.0" prefWidth="72.0" text="ADD" />
       <Label layoutX="35.0" layoutY="51.0" text="List of Names" textFill="#111111">
          <font>
             <Font size="23.0" />
@@ -26,5 +26,6 @@
       </Label>
       <StackPane fx:id="stackPane" layoutX="31.0" layoutY="124.0" prefHeight="202.0" prefWidth="482.0" />
       <Button fx:id="clearButton" layoutX="527.0" layoutY="85.0" mnemonicParsing="false" onAction="#clearSelection" text="Clear" />
+      <Button fx:id="cancelBtn" layoutX="213.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancelStudent" text="Cancel" />
    </children>
 </AnchorPane>

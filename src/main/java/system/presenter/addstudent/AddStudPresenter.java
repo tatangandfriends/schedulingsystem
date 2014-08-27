@@ -222,5 +222,17 @@ public class AddStudPresenter implements Initializable {
         stackPane.getChildren().addAll(studentTable,veil,progressIndicator);
         new Thread(task).start();
     }
+    @FXML
+    private void cancelStudent(ActionEvent event) {
+        cancel();
+    }
     
-}
+    private void cancel(){
+         AnchorPane anchor = (AnchorPane)anchorPane.getParent();
+            anchor.getChildren().clear();
+            anchor.getChildren().add(new MainView().getView());            
+        }
+    }
+    
+
+

@@ -10,6 +10,7 @@
     <class>system.business.models.Subject</class>
     <class>system.business.models.Teacher</class>
     <class>system.business.models.Time</class>
+    <class>system.business.models.Section</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/SchedulingSystemDB"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

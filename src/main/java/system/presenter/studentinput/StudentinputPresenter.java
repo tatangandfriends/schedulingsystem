@@ -110,6 +110,8 @@ public class StudentinputPresenter implements Initializable {
             anchorPane.getChildren().add(new AddStudView().getView());            
         }
     }
+ 
+ 
 
     /**
      * @return the selectedStudent
@@ -134,4 +136,15 @@ public class StudentinputPresenter implements Initializable {
        return selectedStudentListener;
     }
     
-}
+   @FXML
+    private void cancelStudent(ActionEvent event) {
+        cancel();
+    }
+    
+    private void cancel(){
+         AnchorPane anchorPane = (AnchorPane)currentPane.getParent();
+            anchorPane.getChildren().clear();
+            anchorPane.getChildren().add(new AddStudView().getView());            
+        }
+    }
+

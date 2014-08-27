@@ -21,6 +21,7 @@ import system.presenter.studentinput.StudentinputView;
 import system.presenter.addstudent.AddStudPresenter;
 import system.presenter.addstudent.AddStudView;
 import system.presenter.course.CourseView;
+import system.presenter.teacher.TeacherView;
 
 
 
@@ -34,6 +35,9 @@ public class MainPresenter implements Initializable{
     
     @FXML
     private MenuItem addStud;
+    
+    @FXML 
+    private MenuItem addTeach;
     
     private AddStudPresenter addStudPresenter;
  
@@ -62,6 +66,11 @@ public class MainPresenter implements Initializable{
     private void studentList(ActionEvent event){
         anchorPane.getChildren().clear();
         anchorPane.getChildren().add(new StudentinputView().getView());
+    }
+    @FXML
+    private void addTeacher(ActionEvent event){
+        anchorPane.getChildren().clear();
+        anchorPane.getChildren().add(new TeacherView().getView());
     }
     
     
