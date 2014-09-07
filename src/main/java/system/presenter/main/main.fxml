@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import java.lang.*?>
 
+<?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.main.MainPresenter">
     <children>
-        <MenuBar fx:id="menuBar" layoutY="2.0" prefHeight="31.0" prefWidth="600.0">
+        <MenuBar fx:id="menuBar" layoutY="7.0" prefHeight="31.0" prefWidth="600.0">
             <menus>
                 <Menu mnemonicParsing="false" text="Student">
                     <items>
@@ -16,12 +16,27 @@
               
                     </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Teacher">
+                <Menu mnemonicParsing="false" text="Teacher's Information">
                     <items>
                         <MenuItem fx:id="addTeach" mnemonicParsing="false" onAction="#addTeacher" text="Add Teacher" />
-                        <MenuItem mnemonicParsing="false" onAction="#addStud" text="Add Department" />
                     </items>
                 </Menu>
+            <Menu mnemonicParsing="false" text="Subject's Information">
+               <items>
+                  <MenuItem fx:id="addSub" mnemonicParsing="false" onAction="#addSubject" text="Add Subject" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Schedule">
+               <items>
+                  <MenuItem fx:id="addSched" mnemonicParsing="false" text="Add New Schedule" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Time and Room">
+               <items>
+                  <MenuItem fx:id="addTimeAndRoom" mnemonicParsing="false" text="Add New Time and Room" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="About Us" />
             </menus>
         </MenuBar>
     </children>

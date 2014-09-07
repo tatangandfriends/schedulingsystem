@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="738.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="system.presenter.timeandroom.TimeAndRoomPresenter">
+   <children>
+      <Text layoutX="21.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. " />
+      <Text layoutX="21.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2. " />
+      <Text layoutX="21.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. " />
+      <Text layoutX="21.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4. " />
+      <Text layoutX="33.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MWF" />
+      <Text layoutX="36.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecture Room" />
+      <ComboBox layoutX="131.0" layoutY="81.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="131.0" layoutY="114.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="131.0" layoutY="146.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="131.0" layoutY="179.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="204.0" layoutY="81.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="204.0" layoutY="114.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="204.0" layoutY="146.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="204.0" layoutY="179.0" prefHeight="25.0" prefWidth="61.0" />
+      <Text layoutX="161.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecture Time" />
+      <ComboBox layoutX="35.0" layoutY="81.0" prefHeight="25.0" prefWidth="74.0" />
+      <ComboBox layoutX="35.0" layoutY="114.0" prefHeight="25.0" prefWidth="74.0" />
+      <ComboBox layoutX="35.0" layoutY="146.0" prefHeight="25.0" prefWidth="74.0" />
+      <ComboBox layoutX="36.0" layoutY="179.0" prefHeight="25.0" prefWidth="74.0" />
+      <TextField layoutX="276.0" layoutY="81.0" prefHeight="25.0" prefWidth="98.0" />
+      <TextField layoutX="276.0" layoutY="114.0" prefHeight="25.0" prefWidth="98.0" />
+      <TextField layoutX="276.0" layoutY="146.0" prefHeight="25.0" prefWidth="98.0" />
+      <TextField layoutX="276.0" layoutY="179.0" prefHeight="25.0" prefWidth="98.0" />
+      <Text layoutX="190.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="190.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="190.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="190.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="441.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="441.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="441.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="441.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="405.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory Time" />
+      <ComboBox layoutX="455.0" layoutY="179.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="455.0" layoutY="146.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="455.0" layoutY="114.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="455.0" layoutY="81.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="382.0" layoutY="179.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="382.0" layoutY="146.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="382.0" layoutY="114.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="382.0" layoutY="81.0" prefHeight="25.0" prefWidth="61.0" />
+      <Text layoutX="276.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory Room" />
+      <ComboBox layoutX="551.0" layoutY="81.0" prefHeight="25.0" prefWidth="74.0" />
+      <ComboBox layoutX="551.0" layoutY="114.0" prefHeight="25.0" prefWidth="74.0" />
+      <ComboBox layoutX="551.0" layoutY="146.0" prefHeight="25.0" prefWidth="74.0" />
+      <ComboBox layoutX="551.0" layoutY="179.0" prefHeight="25.0" prefWidth="74.0" />
+      <Text layoutX="551.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject Name" />
+      <Text layoutX="550.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject Name" />
+      <ComboBox layoutX="550.0" layoutY="360.0" prefHeight="25.0" prefWidth="74.0" />
+      <ComboBox layoutX="550.0" layoutY="327.0" prefHeight="25.0" prefWidth="74.0" />
+      <ComboBox layoutX="550.0" layoutY="295.0" prefHeight="25.0" prefWidth="74.0" />
+      <ComboBox layoutX="550.0" layoutY="262.0" prefHeight="25.0" prefWidth="74.0" />
+      <Text layoutX="275.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory Room" />
+      <ComboBox layoutX="381.0" layoutY="262.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="381.0" layoutY="295.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="381.0" layoutY="327.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="381.0" layoutY="360.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="454.0" layoutY="262.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="454.0" layoutY="295.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="454.0" layoutY="327.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="454.0" layoutY="360.0" prefHeight="25.0" prefWidth="61.0" />
+      <Text layoutX="404.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory Time" />
+      <Text layoutX="440.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="440.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="440.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="440.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="189.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="189.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="189.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="189.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="15.1962890625">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <TextField layoutX="275.0" layoutY="360.0" prefHeight="25.0" prefWidth="98.0" />
+      <TextField layoutX="275.0" layoutY="327.0" prefHeight="25.0" prefWidth="98.0" />
+      <TextField layoutX="275.0" layoutY="295.0" prefHeight="25.0" prefWidth="98.0" />
+      <TextField layoutX="275.0" layoutY="262.0" prefHeight="25.0" prefWidth="98.0" />
+      <ComboBox layoutX="35.0" layoutY="360.0" prefHeight="25.0" prefWidth="74.0" />
+      <ComboBox layoutX="34.0" layoutY="327.0" prefHeight="25.0" prefWidth="74.0" />
+      <ComboBox layoutX="34.0" layoutY="295.0" prefHeight="25.0" prefWidth="74.0" />
+      <ComboBox layoutX="34.0" layoutY="262.0" prefHeight="25.0" prefWidth="74.0" />
+      <Text layoutX="160.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecture Time" />
+      <ComboBox layoutX="203.0" layoutY="360.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="203.0" layoutY="327.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="203.0" layoutY="295.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="203.0" layoutY="262.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="130.0" layoutY="360.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="130.0" layoutY="327.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="130.0" layoutY="295.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox layoutX="130.0" layoutY="262.0" prefHeight="25.0" prefWidth="61.0" />
+      <Text layoutX="35.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecture Room" />
+      <Text layoutX="32.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TTH" />
+      <Text layoutX="20.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8. " />
+      <Text layoutX="20.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7." />
+      <Text layoutX="20.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6. " />
+      <Text layoutX="20.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5. " />
+      <Button layoutX="651.0" layoutY="360.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" text="Done" />
+   </children>
+</AnchorPane>

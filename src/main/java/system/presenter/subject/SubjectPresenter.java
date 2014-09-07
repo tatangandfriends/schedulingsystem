@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package system.presenter.teacher;
+package system.presenter.subject;
 
 import java.net.URL;
 import java.util.List;
@@ -20,7 +20,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -28,100 +27,76 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import javafx.util.Callback;
 import javax.inject.Inject;
-import system.business.models.Course;
-import system.business.models.Student;
+import system.business.models.Subject;
 import system.business.models.Teacher;
-import system.business.services.StudentService;
-import system.business.services.TeacherService;
+import system.business.services.SubjectService;
 import system.presenter.main.MainView;
-import system.presenter.teacherinput.TeacherInputPresenter;
+import system.presenter.subjectinput.SubjectInputView;
 import system.presenter.teacherinput.TeacherInputView;
 
 /**
  * FXML Controller class
  *
- * @author dennis
+ * @author BlackBox
  */
-public class TeacherPresenter implements Initializable {
+public class SubjectPresenter implements Initializable {
     @FXML
     private AnchorPane currentPane;
     @FXML
-    private Button addBtn;
-    @FXML
-    private Button editBtn;
+    private StackPane stackPane;
     @FXML
     private Button removeBtn;
     @FXML
     private Button backBtn;
     @FXML
-    private StackPane stackPane;
-
+    private Button editBtn;
+    @FXML
+    private Button addBtn;
     
-    private ObjectProperty<Teacher> selectedTeacher;
+    private ObjectProperty<Subject> selectedSubject;
     
-    ObservableList<Teacher> teachers;   
-    TableView<Teacher> teacherTable;
+    ObservableList<Subject> subjects;   
+    TableView<Subject> subjectTable;
     ProgressIndicator progressIndicator;    
     Region veil;    
-    Task<ObservableList<Teacher>> task;
+    Task<ObservableList<Subject>> task;
     
    
     @Inject
-    TeacherService ts;
+    SubjectService ss;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        selectedTeacher = new SimpleObjectProperty<>();
-        teachers = FXCollections.observableArrayList();
+        selectedSubject = new SimpleObjectProperty<>();
+        subjects = FXCollections.observableArrayList();
         prepareTable();
         getAllFromDB();
-        
     }    
      @FXML
-    private void teacherList(ActionEvent event){
+    private void SubjectList(ActionEvent event){
         currentPane.getChildren().clear();
-        currentPane.getChildren().add(new TeacherInputView().getView());
+        currentPane.getChildren().add(new SubjectInputView().getView());
     }
-    
-    
     private void prepareTable(){
-        teacherTable = new TableView<>();
-        this.teacherTable.setEditable(false);
-        ObservableList columns = teacherTable.getColumns();
-        final TableColumn firstNameColumn = createTextColumn("fname", "First Name");
+        subjectTable = new TableView<>();
+        this.subjectTable.setEditable(false);
+        ObservableList columns = subjectTable.getColumns();
+        final TableColumn firstNameColumn = createTextColumn("subCode", "Subject Code");
         columns.add(firstNameColumn);
-        final TableColumn lastNameColumn = createTextColumn("lname", "Last Name");
+        final TableColumn lastNameColumn = createTextColumn("subDesc", "Subject Description");
         columns.add(lastNameColumn);
-//        TableColumn<Student, Course> courseColumn= new TableColumn<>("Course");
-//        courseColumn.setCellValueFactory(new PropertyValueFactory<>("course"));
-//        courseColumn.setCellFactory(new Callback<TableColumn<Student, Course>, TableCell<Student, Course>>() {
-//        @Override
-//        public TableCell<Student, Course> call(TableColumn<Student, Course> param) {
-//        return new TableCell<Student, Course>() {
-//            @Override
-//            protected void updateItem(Course item, boolean empty) {
-//                super.updateItem(item, empty);
-//                if(!empty){
-//                    if(item != null){
-//                        setText(item.getCourseCode());
-//                    }
-//                    
-//                }else {
-//                setText(null);
-//              }//            }
-
-//        };
-//        }
-//        });
-//       columns.add(courseColumn);
-        teacherTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        teacherTable.setItems(teachers);
-        teacherTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);        
+        final TableColumn unitColumn = createTextColumn("unit", "No. of Unit");
+        columns.add(unitColumn);
+        
+        subjectTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        subjectTable.setItems(subjects);
+        subjectTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);   
+    
     }
     private TableColumn createTextColumn(String name, String caption) {
         TableColumn column = new TableColumn(caption);
@@ -136,10 +111,10 @@ public class TeacherPresenter implements Initializable {
         progressIndicator.setMaxSize(150, 150);
         veil = new Region();
         veil.setStyle("-fx-background-color: rgba(0, 0, 0, 0.4)");
-        task = new Task<ObservableList<Teacher>>() {
+        task = new Task<ObservableList<Subject>>() {
             @Override
-            protected ObservableList<Teacher> call() throws Exception {                
-                    List<Teacher> teacherList= ts.getAll();
+            protected ObservableList<Subject> call() throws Exception {                
+                    List<Subject> subjectList= ss.getAll();
 //                if(!searchField.getText().isEmpty()){
 //                    teacherList = ts.findByName(searchField.textProperty().get());
 //                }                
@@ -147,8 +122,8 @@ public class TeacherPresenter implements Initializable {
 ////                    studentList = FXCollections.observableArrayList(ss.findByCourseCode(courseCb.getSelectionModel().getSelectedItem()));
 ////                }
                 Thread.sleep(5);
-                teachers = FXCollections.observableArrayList(teacherList);                
-                return teachers;
+                subjects = FXCollections.observableArrayList(subjectList);                
+                return subjects;
                 
             }
         };
@@ -156,30 +131,30 @@ public class TeacherPresenter implements Initializable {
         progressIndicator.progressProperty().bind(task.progressProperty());
         veil.visibleProperty().bind(task.runningProperty());
         progressIndicator.visibleProperty().bind(task.runningProperty());
-        teacherTable.itemsProperty().bind(task.valueProperty()); 
-        stackPane.getChildren().addAll(teacherTable,veil,progressIndicator);
+        subjectTable.itemsProperty().bind(task.valueProperty()); 
+        stackPane.getChildren().addAll(subjectTable,veil,progressIndicator);
         new Thread(task).start();
      
         
         
     }
+//      @FXML
+//    private void editTeacher(ActionEvent event) {
+//        if(subjectTable.getSelectionModel().getSelectedItem() != null){
+//            TeacherInputView tIv = new TeacherInputView();                    
+//            TeacherInputPresenter tIP= (TeacherInputPresenter) tIv.getPresenter();
+//            tIP.getSelectedTeacher().set(teacherTable.getSelectionModel().getSelectedItem());
+////            selectedEmployee.bindBidirectional(eIP.getSelectedEmployee());
+//            currentPane.getChildren().clear();
+//            currentPane.getChildren().add(tIv.getView());
+//        }
+//    }
     @FXML
-    private void editTeacher(ActionEvent event) {
-        if(teacherTable.getSelectionModel().getSelectedItem() != null){
-            TeacherInputView tIv = new TeacherInputView();                    
-            TeacherInputPresenter tIP= (TeacherInputPresenter) tIv.getPresenter();
-            tIP.getSelectedTeacher().set(teacherTable.getSelectionModel().getSelectedItem());
-//            selectedEmployee.bindBidirectional(eIP.getSelectedEmployee());
-            currentPane.getChildren().clear();
-            currentPane.getChildren().add(tIv.getView());
-        }
-    }
-     @FXML
     private void removeTeacher(ActionEvent event) {
-        ts.remove(this.teacherTable.getSelectionModel().getSelectedItem());
+        ss.remove(this.subjectTable.getSelectionModel().getSelectedItem());
         AnchorPane a = (AnchorPane) currentPane.getParent();
         a.getChildren().clear();
-        a.getChildren().add(new TeacherView().getView());
+        a.getChildren().add(new SubjectView().getView());
     }
     
     @FXML
@@ -193,4 +168,6 @@ public class TeacherPresenter implements Initializable {
             anchorPane.getChildren().add(new MainView().getView());            
         
     }
+    
+    
 }
