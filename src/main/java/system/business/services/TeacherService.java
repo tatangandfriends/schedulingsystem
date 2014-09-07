@@ -8,6 +8,7 @@ package system.business.services;
 
 import java.util.List;
 import javax.inject.Inject;
+import javax.persistence.Query;
 import system.business.models.Teacher;
 
 /**
@@ -27,5 +28,12 @@ public class TeacherService {
        service.getET().begin();
        Teacher merged = service.getEM().merge(t);
        service.getET().commit();
+   }
+   public List<Teacher> findByName(String name){
+       Query query = service.getEM().createNamedQuery("Teacher.findByFname");
+       query.setParameter("fname", "%" + name + "%");
+       query.setParameter("lname", "%" + name + "%");
+       
+       return query.getResultList();       
    }
 }
