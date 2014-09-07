@@ -10,7 +10,7 @@
    <children>
       <Button fx:id="addBtn" layoutX="33.0" layoutY="75.0" mnemonicParsing="false" onAction="#teacherList" prefHeight="25.0" prefWidth="59.0" text="Add" />
       <Button fx:id="editBtn" layoutX="33.0" layoutY="114.0" mnemonicParsing="false" onAction="#editTeacher" prefHeight="25.0" prefWidth="59.0" text="Edit" />
-      <Button fx:id="removeBtn" layoutX="33.0" layoutY="158.0" mnemonicParsing="false" text="Remove" />
+      <Button fx:id="removeBtn" layoutX="33.0" layoutY="158.0" mnemonicParsing="false" onAction="#removeTeacher" text="Remove" />
       <StackPane fx:id="stackPane" layoutX="129.0" layoutY="75.0" prefHeight="237.0" prefWidth="430.0" />
       <Button fx:id="backBtn" layoutX="33.0" layoutY="200.0" mnemonicParsing="false" onAction="#cancelHome" prefHeight="25.0" prefWidth="59.0" text="Back" />
    </children>

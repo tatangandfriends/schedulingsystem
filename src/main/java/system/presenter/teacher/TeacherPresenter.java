@@ -173,6 +173,13 @@ public class TeacherPresenter implements Initializable {
             currentPane.getChildren().add(tIv.getView());
         }
     }
+     @FXML
+    private void removeTeacher(ActionEvent event) {
+        ts.remove(this.teacherTable.getSelectionModel().getSelectedItem());
+        AnchorPane a = (AnchorPane) currentPane.getParent();
+        a.getChildren().clear();
+        a.getChildren().add(new TeacherView().getView());
+    }
     
     @FXML
     private void cancelHome(ActionEvent event) {

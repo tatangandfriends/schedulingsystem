@@ -36,4 +36,9 @@ public class TeacherService {
        
        return query.getResultList();       
    }
+   public void remove(Teacher teacher){
+        service.getET().begin();
+        service.getEM().remove(teacher);
+        service.getET().commit();
+    }
 }
