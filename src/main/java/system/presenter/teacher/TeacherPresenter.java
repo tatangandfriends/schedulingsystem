@@ -158,7 +158,9 @@ public class TeacherPresenter implements Initializable {
         teacherTable.itemsProperty().bind(task.valueProperty()); 
         stackPane.getChildren().addAll(teacherTable,veil,progressIndicator);
         new Thread(task).start();
-         
+     
+        
+        
     }
     @FXML
     private void editTeacher(ActionEvent event) {
