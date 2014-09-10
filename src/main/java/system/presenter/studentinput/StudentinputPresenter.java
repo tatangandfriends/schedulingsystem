@@ -71,11 +71,11 @@ public class StudentinputPresenter implements Initializable {
             }
         });
     }    
-     @FXML
-    private void preparedCourseBox(Event event){
-//        courseList = FXCollections.observableList(ss.findCourseAll(courseCb.getEditor().textProperty().get()));
-//        courseCb.setItems(courseList);
-    }
+//     @FXML
+//    private void preparedCourseBox(Event event){
+////        courseList = FXCollections.observableList(ss.findCourseAll(courseCb.getEditor().textProperty().get()));
+////        courseCb.setItems(courseList);
+//    }
 //    public void preparedCourseBox(){
 //        List<Course> courseList = Arrays.asList("Automotive", 
 //                 "HRM","Computer Hardware");

@@ -23,6 +23,7 @@ import system.presenter.addstudent.AddStudView;
 import system.presenter.course.CourseView;
 import system.presenter.subject.SubjectView;
 import system.presenter.teacher.TeacherView;
+import system.presenter.timeandroom.TimeAndRoomView;
 
 
 
@@ -39,6 +40,9 @@ public class MainPresenter implements Initializable{
     
     @FXML 
     private MenuItem addTeach;
+    
+    @FXML
+    private MenuItem addTimeAndRoom;
     
     private AddStudPresenter addStudPresenter;
  
@@ -77,6 +81,12 @@ public class MainPresenter implements Initializable{
     private void addSubject(ActionEvent event){
         anchorPane.getChildren().clear();
         anchorPane.getChildren().add(new SubjectView().getView());
+    }
+    
+    @FXML
+    private void addTimeAndRoom(ActionEvent event){
+        anchorPane.getChildren().clear();
+        anchorPane.getChildren().add(new TimeAndRoomView().getView());
     }
    
     

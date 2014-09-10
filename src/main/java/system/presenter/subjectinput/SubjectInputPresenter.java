@@ -20,7 +20,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javax.inject.Inject;
 import system.business.models.Subject;
-import system.business.models.Teacher;
 import system.business.services.SubjectService;
 import system.presenter.subject.SubjectView;
 
@@ -65,7 +64,7 @@ public class SubjectInputPresenter implements Initializable {
         if(!subCodeField.getText().isEmpty() && !subDescField.getText().isEmpty() && !unit.getText().isEmpty()){
             getSelectedSubject().get().setSubCode(subCodeField.textProperty().get());
             getSelectedSubject().get().setSubName(subDescField.textProperty().get());
-            getSelectedSubject().get().setUnit(Integer.parseInt(unit.getText()));
+//            getSelectedSubject().get().setUnit(Integer.parseInt(unit.getText()));
             
             ss.save(getSelectedSubject().get());
             AnchorPane anchorPane = (AnchorPane)currentPane.getParent();
@@ -83,7 +82,7 @@ public class SubjectInputPresenter implements Initializable {
                 if (newValue != null) {                    
                     subCodeField.setText(newValue.getSubCode());
                     subDescField.setText(newValue.getSubName());
-                    unit.setText(Integer.toString(newValue.getUnit()));
+//                    unit.setText(newValue.getUnit()+" ");
 //                    courseCb.getSelectionModel().select(newValue.getCourse());
                 } else {
                     

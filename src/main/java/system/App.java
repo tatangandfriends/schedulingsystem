@@ -37,7 +37,7 @@ public class App extends Application {
      public void start(Stage stage) throws Exception {
         MainView mainView = new MainView();        
         Scene scene = new Scene(mainView.getView()); 
-        stage.initStyle(StageStyle.TRANSPARENT);
+//        stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }

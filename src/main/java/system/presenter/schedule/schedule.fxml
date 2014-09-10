@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" fx:id="currentPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="system.presenter.schedule.SchedulePresenter">
+   <children>
+      <ComboBox fx:id="sectionCb" layoutX="14.0" layoutY="40.0" prefHeight="25.0" prefWidth="86.0" promptText="section" />
+      <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SECTION" />
+      <ScrollPane fx:id="scrollPane" layoutX="14.0" layoutY="78.0" prefHeight="302.0" prefWidth="573.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+        </content>
+      </ScrollPane>
+      <Button fx:id="doneBtn" layoutX="532.0" layoutY="40.0" mnemonicParsing="false" text="Done" />
+   </children>
+</AnchorPane>

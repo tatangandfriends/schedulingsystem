@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package system.presenter.timeandroom;
+package system.presenter.schedule;
 
 import com.airhacks.afterburner.views.FXMLView;
 
@@ -12,6 +12,6 @@ import com.airhacks.afterburner.views.FXMLView;
  *
  * @author BlackBox
  */
-public class TimeAndRoomView extends FXMLView{
+public class ScheduleView extends FXMLView {
     
 }
