@@ -32,6 +32,7 @@ import system.business.models.Subject;
 import system.business.models.Teacher;
 import system.business.services.SubjectService;
 import system.presenter.main.MainView;
+import system.presenter.subjectinput.SubjectInputPresenter;
 import system.presenter.subjectinput.SubjectInputView;
 import system.presenter.teacherinput.TeacherInputView;
 
@@ -88,9 +89,9 @@ public class SubjectPresenter implements Initializable {
         ObservableList columns = subjectTable.getColumns();
         final TableColumn firstNameColumn = createTextColumn("subCode", "Subject Code");
         columns.add(firstNameColumn);
-        final TableColumn lastNameColumn = createTextColumn("subDesc", "Subject Description");
+        final TableColumn lastNameColumn = createTextColumn("subName", "Subject Description");
         columns.add(lastNameColumn);
-        final TableColumn unitColumn = createTextColumn("unit", "No. of Unit");
+        final TableColumn unitColumn = createTextColumn("Unit", "No. of Unit");
         columns.add(unitColumn);
         
         subjectTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
@@ -138,17 +139,17 @@ public class SubjectPresenter implements Initializable {
         
         
     }
-//      @FXML
-//    private void editTeacher(ActionEvent event) {
-//        if(subjectTable.getSelectionModel().getSelectedItem() != null){
-//            TeacherInputView tIv = new TeacherInputView();                    
-//            TeacherInputPresenter tIP= (TeacherInputPresenter) tIv.getPresenter();
-//            tIP.getSelectedTeacher().set(teacherTable.getSelectionModel().getSelectedItem());
-////            selectedEmployee.bindBidirectional(eIP.getSelectedEmployee());
-//            currentPane.getChildren().clear();
-//            currentPane.getChildren().add(tIv.getView());
-//        }
-//    }
+      @FXML
+    private void editSubject(ActionEvent event) {
+        if(subjectTable.getSelectionModel().getSelectedItem() != null){
+            SubjectInputView sIv = new SubjectInputView();                    
+            SubjectInputPresenter sIP= (SubjectInputPresenter) sIv.getPresenter();
+            sIP.getSelectedSubject().set(subjectTable.getSelectionModel().getSelectedItem());
+//            selectedEmployee.bindBidirectional(eIP.getSelectedEmployee());
+            currentPane.getChildren().clear();
+            currentPane.getChildren().add(sIv.getView());
+        }
+    }
     @FXML
     private void removeTeacher(ActionEvent event) {
         ss.remove(this.subjectTable.getSelectionModel().getSelectedItem());

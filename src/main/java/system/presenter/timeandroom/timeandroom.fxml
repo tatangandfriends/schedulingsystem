@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="currentPane" opacity="0.78" prefHeight="548.0" prefWidth="804.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.timeandroom.TimeAndRoomPresenter">
+<AnchorPane id="AnchorPane" fx:id="currentPane" opacity="0.78" prefHeight="572.0" prefWidth="1171.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.timeandroom.TimeAndRoomPresenter">
    <children>
       <Text layoutX="30.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. " />
       <Text layoutX="30.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2. " />
@@ -180,5 +180,10 @@
       <ComboBox fx:id="teachName3" layoutX="650.0" layoutY="246.0" prefHeight="25.0" prefWidth="74.0" />
       <ComboBox fx:id="teachName2" layoutX="650.0" layoutY="214.0" prefHeight="25.0" prefWidth="74.0" />
       <ComboBox fx:id="teachName1" layoutX="650.0" layoutY="181.0" prefHeight="25.0" prefWidth="74.0" />
+      <ScrollPane fx:id="scrollPane" layoutX="745.0" layoutY="40.0" prefHeight="496.0" prefWidth="414.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

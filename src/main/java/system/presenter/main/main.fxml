@@ -6,10 +6,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.main.MainPresenter">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="400.0" prefWidth="718.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.main.MainPresenter">
     <children>
-        <MenuBar fx:id="menuBar" layoutY="7.0" prefHeight="31.0" prefWidth="600.0">
+        <MenuBar fx:id="menuBar" layoutY="7.0" prefHeight="39.0" prefWidth="728.0">
             <menus>
+            <Menu mnemonicParsing="false" text="User Account">
+               <items>
+                  <MenuItem fx:id="addStud1" mnemonicParsing="false" onAction="#addStud" text="Admin" />
+               </items>
+            </Menu>
                 <Menu mnemonicParsing="false" text="Student">
                     <items>
                         <MenuItem fx:id="addStud" mnemonicParsing="false" onAction="#addStud" text="Add Student" />

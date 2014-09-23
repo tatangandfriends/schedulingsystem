@@ -9,6 +9,7 @@ package system.business.services;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.Query;
+import system.business.models.Department;
 import system.business.models.Teacher;
 
 /**
@@ -41,4 +42,19 @@ public class TeacherService {
         service.getEM().remove(teacher);
         service.getET().commit();
     }
+   
+   public Department findDepartment(String name){
+         return (Department)this.service.getEM().createNamedQuery("Teacher.findByDepartment")
+                 .setParameter("deptName", name).getSingleResult();
+     }
+   public List<Department> findAllDepartment(){
+       return this.service.getEM().createNamedQuery("Department.findAll").getResultList();
+   }
+   public List<Teacher> findByDeptName(Department department){
+       return service.getEM().createNamedQuery("Teacher.byDeparment").setParameter("department", department).getResultList();
+   }
+   public List<Department> findDepartmentAll(String name){
+         return service.getEM().createNamedQuery("Department.findByDepartment").setParameter("name", "%" + name + "%").getResultList();
+     }
+   
 }

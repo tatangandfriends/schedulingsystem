@@ -42,8 +42,9 @@ import javax.persistence.Table;
     @NamedQuery(name = "Teacher.findById", query = "SELECT te FROM Teacher te WHERE te.id = :id"),
     @NamedQuery(name = "Teacher.findByFname", query = "SELECT te FROM Teacher te WHERE te.fname = :fname"),
     @NamedQuery(name = "Teacher.findByLname", query = "SELECT te FROM Teacher te WHERE te.lname = :lname"),
-    @NamedQuery(name = "Teacher.findByTeacher", query = "SELECT te FROM Teacher te WHERE te.fname LIKE :fname OR te.lname LIKE :lname")
-   })
+    @NamedQuery(name = "Teacher.findByTeacher", query = "SELECT te FROM Teacher te WHERE te.fname LIKE :fname OR te.lname LIKE :lname"),
+    @NamedQuery(name = "Teacher.byDepartment", query = "SELECT s FROM Teacher s WHERE s.department = :department")    
+})
 public class Teacher implements Serializable {
 
     private IntegerProperty id;
@@ -110,7 +111,7 @@ public class Teacher implements Serializable {
         this.schedules.set(schedule);
     }
 
-        
+    
 }
 
 

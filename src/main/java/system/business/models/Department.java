@@ -30,6 +30,7 @@ import javax.persistence.OneToMany;
 @NamedQuery(name = "Department.findAll", query = "SELECT te FROM Department te"),
     @NamedQuery(name = "Department.findById", query = "SELECT te FROM Department te WHERE te.id = :id"),
     @NamedQuery(name = "Department.findByDeptName", query = "SELECT te FROM Department te WHERE te.deptName = :deptName"),
+    @NamedQuery(name = "Department.findByDepartment", query = "SELECT d FROM Department d WHERE d.deptName LIKE :deptName")
     })
 public class Department implements Serializable {
     private IntegerProperty id;
@@ -44,6 +45,7 @@ public class Department implements Serializable {
     public Department(String deptName){
         this();
         this.deptName.set(deptName);
+        
     }
     
     @Id

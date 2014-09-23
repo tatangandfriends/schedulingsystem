@@ -31,6 +31,7 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 import javax.inject.Inject;
 import system.business.models.Course;
+import system.business.models.Department;
 import system.business.models.Student;
 import system.business.models.Teacher;
 import system.business.services.StudentService;
@@ -97,28 +98,32 @@ public class TeacherPresenter implements Initializable {
         columns.add(firstNameColumn);
         final TableColumn lastNameColumn = createTextColumn("lname", "Last Name");
         columns.add(lastNameColumn);
-//        TableColumn<Student, Course> courseColumn= new TableColumn<>("Course");
-//        courseColumn.setCellValueFactory(new PropertyValueFactory<>("course"));
-//        courseColumn.setCellFactory(new Callback<TableColumn<Student, Course>, TableCell<Student, Course>>() {
-//        @Override
-//        public TableCell<Student, Course> call(TableColumn<Student, Course> param) {
-//        return new TableCell<Student, Course>() {
-//            @Override
-//            protected void updateItem(Course item, boolean empty) {
-//                super.updateItem(item, empty);
-//                if(!empty){
-//                    if(item != null){
-//                        setText(item.getCourseCode());
-//                    }
-//                    
-//                }else {
-//                setText(null);
-//              }//            }
+        final TableColumn deptColumn = createTextColumn("deptName", "Department");
+        TableColumn<Teacher, Department> departColumn= new TableColumn<>("Department");
+        departColumn.setCellValueFactory(new PropertyValueFactory<>("department"));
+        departColumn.setCellFactory(new Callback<TableColumn<Teacher, Department>, TableCell<Teacher, Department>>() {
+        @Override
+        public TableCell<Teacher, Department> call(TableColumn<Teacher, Department> param) {
+        return new TableCell<Teacher, Department>() {
+            @Override
+            protected void updateItem(Department item, boolean empty) {
+                super.updateItem(item, empty);
+                if(!empty){
+                    if(item != null){
+                        setText(item.getDeptName());
+                    }
+                    
+                }else {
+                setText(null);
+              }
+            }
 
-//        };
-//        }
-//        });
-//       columns.add(courseColumn);
+        };
+        }
+        });
+       columns.add(departColumn);
+        
+
         teacherTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         teacherTable.setItems(teachers);
         teacherTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);        

@@ -39,11 +39,12 @@ public class Subject implements Serializable {
     private IntegerProperty id;
     private StringProperty subDesc;
     private StringProperty subCode;
-    private IntegerProperty unit;    
+    private StringProperty Unit;    
     private ObjectProperty<Student> student;
     private ObjectProperty<Teacher> teacher;
     private ObjectProperty<Schedule> schedule;
     private ObjectProperty<Course> course; 
+    private ObjectProperty<Section> section;
    
     
   //private StringProperty ;
@@ -52,24 +53,25 @@ public class Subject implements Serializable {
         this.id = new SimpleIntegerProperty();
         this.subDesc = new SimpleStringProperty();
         this.subCode = new SimpleStringProperty();
-        this.unit = new SimpleIntegerProperty();
+        this.Unit = new SimpleStringProperty();
         this.teacher = new SimpleObjectProperty<>();
         this.student = new SimpleObjectProperty<>();
         this.schedule = new SimpleObjectProperty<>();
+        this.section = new SimpleObjectProperty<>();
         
     }
     
-    public Subject(int id, String subName, String subCode, int unit){
+    public Subject(String subName, String subCodeee, String Unit){
         this();
         this.subDesc.set(subName);
-        this.subCode.set(subCode);
-        this.unit.set(unit);
+        this.subCode.set(subCodeee);
+        this.Unit.set(Unit);
         
     }
     
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     public int getId(){
         return this.id.get();
     }
@@ -91,11 +93,11 @@ public class Subject implements Serializable {
         this.subCode.set(subCode);
     }
     @Column(name = "unit")
-    public int getUnit(){
-        return this.unit.get();
+    public String getUnit(){
+        return this.Unit.get();
     }
-    public void setUnit(int unit){
-        this.id.set(unit);
+    public void setUnit(String Unit){
+        this.Unit.set(Unit);
     }
      
     @ManyToOne
@@ -105,6 +107,14 @@ public class Subject implements Serializable {
     }
     public void setSchedule(Schedule schedule){
         this.schedule.set(schedule);
+    }
+    @ManyToOne
+    @JoinColumn(name = "section")
+    public Section getSection(){
+        return this.section.get();
+    }
+    public void setSection(Section section){
+        this.section.set(section);
     }
     
    

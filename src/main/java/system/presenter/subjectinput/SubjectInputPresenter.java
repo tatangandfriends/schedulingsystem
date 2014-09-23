@@ -37,7 +37,7 @@ public class SubjectInputPresenter implements Initializable {
     @FXML
     private TextField subDescField;
     @FXML
-    private TextField unit;
+    private TextField unitField;
     @FXML
     private Button saveBtn;
     
@@ -61,10 +61,10 @@ public class SubjectInputPresenter implements Initializable {
     }
     
     private void savyy(){
-        if(!subCodeField.getText().isEmpty() && !subDescField.getText().isEmpty() && !unit.getText().isEmpty()){
+        if(!subCodeField.getText().isEmpty() && !subDescField.getText().isEmpty() && !unitField.getText().isEmpty()){
             getSelectedSubject().get().setSubCode(subCodeField.textProperty().get());
             getSelectedSubject().get().setSubName(subDescField.textProperty().get());
-//            getSelectedSubject().get().setUnit(Integer.parseInt(unit.getText()));
+            getSelectedSubject().get().setUnit(unitField.textProperty().get());
             
             ss.save(getSelectedSubject().get());
             AnchorPane anchorPane = (AnchorPane)currentPane.getParent();
@@ -82,7 +82,7 @@ public class SubjectInputPresenter implements Initializable {
                 if (newValue != null) {                    
                     subCodeField.setText(newValue.getSubCode());
                     subDescField.setText(newValue.getSubName());
-//                    unit.setText(newValue.getUnit()+" ");
+                    unitField.setText(newValue.getUnit());
 //                    courseCb.getSelectionModel().select(newValue.getCourse());
                 } else {
                     
