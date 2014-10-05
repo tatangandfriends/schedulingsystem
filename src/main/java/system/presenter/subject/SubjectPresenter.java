@@ -151,7 +151,7 @@ public class SubjectPresenter implements Initializable {
         }
     }
     @FXML
-    private void removeTeacher(ActionEvent event) {
+    private void removeSubject(ActionEvent event) {
         ss.remove(this.subjectTable.getSelectionModel().getSelectedItem());
         AnchorPane a = (AnchorPane) currentPane.getParent();
         a.getChildren().clear();
