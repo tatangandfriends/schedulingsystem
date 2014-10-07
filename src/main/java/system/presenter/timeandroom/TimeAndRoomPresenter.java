@@ -19,6 +19,7 @@ import system.business.models.Room;
 import system.business.models.Subject;
 import system.business.models.Teacher;
 import system.business.models.Time;
+import system.presenter.main.MainView;
 
 /**
  * FXML Controller class
@@ -161,6 +162,36 @@ public class TimeAndRoomPresenter implements Initializable {
         roomCb8.setItems(FXCollections.observableArrayList(201, 202, 203, 204, 205));
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @FXML
+    private void cancel(){
+         AnchorPane anchorPane = (AnchorPane)currentPane.getParent();
+            anchorPane.getChildren().clear();
+            anchorPane.getChildren().add(new MainView().getView());            
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

@@ -11,24 +11,40 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author dennis
  */
+@Entity
+@NamedQueries ({
+@NamedQuery(name = "UserAccounts.findAll", query = "SELECT a FROM UserAccounts a"),
+    @NamedQuery(name = "UserAccounts.findById", query = "SELECT a FROM UserAccounts a WHERE a.id = :id"),
+    @NamedQuery(name = "UserAccounts.findByUserName", query = "SELECT a FROM UserAccounts a WHERE a.userName LIKE :userName"),
+    @NamedQuery(name = "UserAccounts.findByPassword", query = "SELECT a FROM UserAccounts a WHERE a.password LIKE :password"),
+//    @NamedQuery(name = "UserAccounts.CheckCredentials", query = "SELECT a FROM UserAccounts a WHERE a.userName = :userName AND a.password = :password")})
+})
 public class UserAccounts {
     private IntegerProperty id;
-    private StringProperty username;
+    private StringProperty userName;
     private StringProperty password;
     
     
     public UserAccounts(){
         this.id = new SimpleIntegerProperty();
-        this.username = new SimpleStringProperty();
+        this.userName = new SimpleStringProperty();
         this.password = new SimpleStringProperty();
+    }
+    public UserAccounts(String userName, String password){
+        this();
+        this.userName.set(userName);
+        this.password.set(password);
     }
     
     
@@ -45,11 +61,11 @@ public class UserAccounts {
     
     @Column(name="username")
     public String getUsername(){
-       return this.username.get();
+       return this.userName.get();
     }
     
-    public void setUsername(String username){
-        this.username.set(username);
+    public void setUserName(String userName){
+        this.userName.set(userName);
     }
     
     @Column(name="password")

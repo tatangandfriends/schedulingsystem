@@ -25,6 +25,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import system.presenter.login.LoginView;
 import system.presenter.main.MainView;
 
 /**
@@ -35,11 +36,17 @@ public class App extends Application {
 
     @Override
      public void start(Stage stage) throws Exception {
-        MainView mainView = new MainView();        
-        Scene scene = new Scene(mainView.getView()); 
+        LoginView login = new LoginView();
+    Scene scene = new Scene(login.getView());
         stage.initStyle(StageStyle.DECORATED);
         stage.setScene(scene);
         stage.show();
+                
+//        MainView mainView = new MainView();        
+//        Scene scene = new Scene(mainView.getView()); 
+//        stage.initStyle(StageStyle.DECORATED);
+//        stage.setScene(scene);
+//        stage.show();
     }
 
     public static void main(String[] args) {
