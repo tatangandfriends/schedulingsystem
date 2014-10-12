@@ -8,6 +8,7 @@ package system.business.services;
 
 import java.util.List;
 import javax.inject.Inject;
+import system.business.models.Department;
 import system.business.models.Subject;
 import system.business.models.Teacher;
 
@@ -22,7 +23,9 @@ public class SubjectService {
    public List<Subject> getAll(){
        return this.service.getEM().createNamedQuery("Subject.findAll").getResultList();
    }
-   
+   public List<Department> findDepartmentAll(String name){
+         return service.getEM().createNamedQuery("Department.findByDepartment").setParameter("name", "%" + name + "%").getResultList();
+     }
    
    public void save(Subject s){
        service.getET().begin();

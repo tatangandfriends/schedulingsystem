@@ -73,14 +73,15 @@ public class StudentinputPresenter implements Initializable {
     }    
      @FXML
     private void preparedCourseBox(Event event){
-        courseList = FXCollections.observableList(ss.findCourseAll(courseCb.getEditor().textProperty().get()));
-        courseCb.setItems(courseList);
+//        courseList = FXCollections.observableList(ss.findCourseAll(courseCb.getEditor().textProperty().get()));
+//        courseCb.setItems(courseList);
     }
-    public void preparedCourseBox(){
-
-        ObservableList<Course> courseList1 = FXCollections.observableArrayList(courseList);
-        courseCb.setItems(courseList1);
-    }
+//    public void preparedCourseBox(){
+//        List<Course> courseList = Arrays.asList("Automotive", 
+//                 "HRM","Computer Hardware");
+//        ObservableList<Course> courseList1 = FXCollections.observableArrayList(courseList);
+//        courseCb.setItems(courseList1);
+//    }
     @FXML
     private void saveStudent(ActionEvent event) {
         savyy();
@@ -93,7 +94,7 @@ public class StudentinputPresenter implements Initializable {
             if(courseCb.getSelectionModel().getSelectedItem() != null){
                 Course c = courseCb.getSelectionModel().getSelectedItem();                
                 getSelectedStudent().get().setCourse(c);
-        }else{
+            }else{
                 Course c;
                 try {
                     c = ss.findCourse(courseCb.getEditor().textProperty().get());

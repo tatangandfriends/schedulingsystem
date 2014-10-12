@@ -36,17 +36,17 @@ public class App extends Application {
 
     @Override
      public void start(Stage stage) throws Exception {
-        LoginView login = new LoginView();
-    Scene scene = new Scene(login.getView());
-        stage.initStyle(StageStyle.DECORATED);
-        stage.setScene(scene);
-        stage.show();
-                
-//        MainView mainView = new MainView();        
-//        Scene scene = new Scene(mainView.getView()); 
+//        LoginView login = new LoginView();
+//        Scene scene = new Scene(login.getView());
 //        stage.initStyle(StageStyle.DECORATED);
 //        stage.setScene(scene);
 //        stage.show();
+                
+        MainView mainView = new MainView();        
+        Scene scene = new Scene(mainView.getView()); 
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args) {

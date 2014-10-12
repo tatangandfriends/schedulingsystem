@@ -22,16 +22,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author dennis
  */
 @Entity
+@Table(name="subject")
 @NamedQueries({
 @NamedQuery(name = "Subject.findAll", query = "SELECT s FROM Subject s"),
     @NamedQuery(name = "Subject.findById", query = "SELECT s FROM Subject s WHERE s.id = :id"),
-    @NamedQuery(name = "Subject.findBySubCode", query = "SELECT s FROM Subject s WHERE s.subCode = :subCode"),
+    @NamedQuery(name = "Subject.findBySubCode", query = "SELECT s FROM Subject s WHERE s.subCode = :subCode")
     
    })
 public class Subject implements Serializable {

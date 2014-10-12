@@ -9,16 +9,19 @@ package system.presenter.timeandroom;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
+import system.business.models.Course;
 import system.business.models.Room;
 import system.business.models.Subject;
 import system.business.models.Teacher;
 import system.business.models.Time;
+import system.presenter.addstudent.AddStudView;
 import system.presenter.main.MainView;
 
 /**
@@ -162,7 +165,6 @@ public class TimeAndRoomPresenter implements Initializable {
         roomCb8.setItems(FXCollections.observableArrayList(201, 202, 203, 204, 205));
         
     }
-    
     
     
     

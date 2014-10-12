@@ -23,12 +23,14 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author dennis
  */
 @Entity
+@Table(name="section")
 @NamedQueries({
 @NamedQuery(name = "Section.findAll", query = "SELECT s FROM Section s"),
     @NamedQuery(name = "Section.findById", query = "SELECT s FROM Section s WHERE s.id = :id"),
