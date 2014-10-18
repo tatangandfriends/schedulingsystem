@@ -26,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import system.presenter.main.MainView;
+import system.presenter.schedule.ScheduleView;
 
 /**
  *
@@ -35,7 +36,7 @@ public class App extends Application {
 
     @Override
      public void start(Stage stage) throws Exception {
-        MainView mainView = new MainView();        
+        ScheduleView mainView = new ScheduleView();        
         Scene scene = new Scene(mainView.getView()); 
         stage.initStyle(StageStyle.DECORATED);
         stage.setScene(scene);
