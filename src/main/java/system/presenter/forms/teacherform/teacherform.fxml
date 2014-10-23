@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.forms.teacherform.TeacherFormPresenter">
+   <children>
+      <Button fx:id="saveTeacherButton" layoutX="43.0" layoutY="168.0" mnemonicParsing="false" onAction="#saveTeacherButton" text="Save" />
+      <TextField fx:id="lastNameField" layoutX="43.0" layoutY="85.0" promptText="lastname" />
+      <TextField fx:id="firstNameField" layoutX="43.0" layoutY="47.0" promptText="firstname" />
+   </children>
+</AnchorPane>

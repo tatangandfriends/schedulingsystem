@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import system.business.models.Subject;
+import system.business.models.Teacher;
 
 /**
  *
@@ -49,6 +50,23 @@ public class MainService {
     public void delete(Subject subject){
         this.et.begin();
         this.em.remove(subject);
+        this.et.commit();
+    }
+    
+    
+    public List<Teacher> getAllTeachers(){
+        return this.em.createNamedQuery("Teacher.findAll").getResultList();
+    }
+    
+    public void save(Teacher teacher){
+        this.et.begin();
+        Teacher merged = em.merge(teacher);
+        this.et.commit();
+    }
+    
+    public void delete(Teacher teacher){
+        this.et.begin();
+        this.em.remove(teacher);
         this.et.commit();
     }
     

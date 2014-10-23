@@ -16,9 +16,11 @@ import javafx.scene.layout.AnchorPane;
 import javax.inject.Inject;
 import system.business.services.MainService;
 import system.presenter.forms.subjectform.SubjectFormView;
+import system.presenter.forms.teacherform.TeacherFormView;
 import system.presenter.main.screensfw.ControlledScreen;
 import system.presenter.main.screensfw.ViewController;
 import system.presenter.views.subject.SubjectView;
+import system.presenter.views.teacher.TeacherView;
 
 /**
  * FXML Controller class
@@ -39,6 +41,12 @@ public class MainPresenter implements Initializable, ControlledScreen {
     SubjectView subjectView;
     public static final String subjectForm = "subjectForm";
     SubjectFormView subjectFormView;
+    
+    public static final String teacherViewAll = "teacherViewAll";
+    TeacherView teacherView;
+    public static final String teacherForm = "teacherForm";
+    TeacherFormView teacherFormView;
+    
     
     @Inject
     MainService service;
@@ -69,13 +77,21 @@ public class MainPresenter implements Initializable, ControlledScreen {
         viewController.loadScreen(subjectForm, subjectFormView);  
         viewController.setScreen(MainPresenter.subjectForm);
     }
-
+    
     @FXML
     private void viewAllTeacherAction(ActionEvent event) {
+        viewController.unloadScreen(teacherViewAll);
+        teacherView = new TeacherView();
+        viewController.loadScreen(teacherViewAll, teacherView);  
+        viewController.setScreen(MainPresenter.teacherViewAll);
     }
-
+    
     @FXML
     private void addNewTeacherAction(ActionEvent event) {
+        viewController.unloadScreen(subjectForm);
+        teacherFormView = new TeacherFormView();
+        viewController.loadScreen(teacherForm, teacherFormView);  
+        viewController.setScreen(MainPresenter.teacherForm);
     }
 
     @FXML

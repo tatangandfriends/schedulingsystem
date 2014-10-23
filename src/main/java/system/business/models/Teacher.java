@@ -21,6 +21,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -30,6 +32,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="teacher")
+@NamedQueries({
+@NamedQuery(name = "Teacher.findAll", query = "SELECT t FROM Teacher t")})
 public class Teacher implements Serializable {
 
     private IntegerProperty id;
@@ -83,8 +87,15 @@ public class Teacher implements Serializable {
             ObservableList<Schedule> schedule = FXCollections.observableArrayList(schedules);
         this.schedules.set(schedule);
     }
-
     
+     public StringProperty firstNameProperty(){
+        return fname;
+    }
+    
+    public StringProperty lastNameProperty(){
+        return lname;
+    }
+  
 }
 
 

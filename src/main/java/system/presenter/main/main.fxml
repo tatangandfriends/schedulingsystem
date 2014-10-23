@@ -18,8 +18,8 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Teacher">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#viewAllTeacherAction" text="View All" />
-                  <MenuItem mnemonicParsing="false" onAction="#addNewTeacherAction" text="Add New" />
+                  <MenuItem fx:id="teacherViewAll" mnemonicParsing="false" onAction="#viewAllTeacherAction" text="View All" />
+                  <MenuItem fx:id="teacherForm" mnemonicParsing="false" onAction="#addNewTeacherAction" text="Add New" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Room">

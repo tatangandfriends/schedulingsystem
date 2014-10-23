@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="currentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.views.teacher.TeacherPresenter">
+   <children>
+      <Button fx:id="addNewButton" layoutX="45.0" layoutY="70.0" mnemonicParsing="false" onAction="#addNewButtonAction" text="Button" />
+      <Button fx:id="removeButton" layoutX="342.0" layoutY="70.0" mnemonicParsing="false" onAction="#removeButtonAction" prefHeight="25.0" prefWidth="71.0" text="Remove" />
+      <Button fx:id="editButton" layoutX="272.0" layoutY="70.0" mnemonicParsing="false" onAction="#editButtonAction" prefHeight="25.0" prefWidth="43.0" text="Edit" />
+      <TableView fx:id="teacherTableView" layoutX="45.0" layoutY="112.0" prefHeight="423.0" prefWidth="368.0">
+         <columns>
+            <TableColumn fx:id="teacherFirstNameColumn" prefWidth="181.0" text="First_Name" />
+            <TableColumn fx:id="teacherLastNameColumn" prefWidth="186.0" text="Last_Name" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
