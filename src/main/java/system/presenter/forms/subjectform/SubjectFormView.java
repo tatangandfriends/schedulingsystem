@@ -4,15 +4,14 @@
  * and open the template in the editor.
  */
 
-package system.presenter.main;
+package system.presenter.forms.subjectform;
 
 import com.airhacks.afterburner.views.FXMLView;
 
-
 /**
  *
- * @author dennis
+ * @author Hadouken
  */
-public class MainView extends FXMLView{
+public class SubjectFormView extends FXMLView{
     
 }

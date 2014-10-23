@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1136.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="system.presenter.forms.subjectform.SubjectFormPresenter">
+   <children>
+      <TextField fx:id="nameField" layoutX="32.0" layoutY="39.0" promptText="name" />
+      <TextField fx:id="codeField" layoutX="32.0" layoutY="77.0" promptText="code" />
+      <TextField fx:id="unitField" layoutX="32.0" layoutY="113.0" promptText="unit" />
+      <Button fx:id="saveSubjectButton" layoutX="32.0" layoutY="160.0" mnemonicParsing="false" onAction="#saveSubjectButton" text="Save" />
+   </children>
+</AnchorPane>

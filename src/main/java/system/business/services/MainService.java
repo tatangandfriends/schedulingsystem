@@ -6,10 +6,12 @@
 
 package system.business.services;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import system.business.models.Subject;
 
 /**
  *
@@ -33,5 +35,22 @@ public class MainService {
     public EntityTransaction getET(){
         return this.et;
     }
+    
+    public List<Subject> getAllSubjects(){
+        return this.em.createNamedQuery("Subjects.findAll").getResultList();
+    }
+    
+    public void save(Subject subject){
+        this.et.begin();
+        Subject merged = em.merge(subject);
+        this.et.commit();
+    }
+    
+    public void delete(Subject subject){
+        this.et.begin();
+        this.em.remove(subject);
+        this.et.commit();
+    }
+    
     
 }

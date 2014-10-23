@@ -13,6 +13,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.layout.AnchorPane;
+import javax.inject.Inject;
+import system.business.services.MainService;
+import system.presenter.forms.subjectform.SubjectFormView;
 import system.presenter.main.screensfw.ControlledScreen;
 import system.presenter.main.screensfw.ViewController;
 import system.presenter.views.subject.SubjectView;
@@ -24,15 +27,21 @@ import system.presenter.views.subject.SubjectView;
  */
 public class MainPresenter implements Initializable, ControlledScreen {
     
+    
+    
     @FXML
     private AnchorPane centerPane;
     
     ViewController viewController;
     Group group;
     
-     private static final String subjectViewAll = "subjectViewAll";
-     SubjectView subjectView;
+    public static final String subjectViewAll = "subjectViewAll";
+    SubjectView subjectView;
+    public static final String subjectForm = "subjectForm";
+    SubjectFormView subjectFormView;
     
+    @Inject
+    MainService service;
     
     /**
      * Initializes the controller class.
@@ -41,19 +50,24 @@ public class MainPresenter implements Initializable, ControlledScreen {
     public void initialize(URL url, ResourceBundle rb) {
         viewController = new ViewController();
         group = new Group();
+        group.getChildren().addAll(viewController);
         centerPane.getChildren().add(group);
     }    
 
     @FXML
     private void viewAllSubjectAction(ActionEvent event) {
+        viewController.unloadScreen(subjectViewAll);
         subjectView = new SubjectView();
-        viewController.loadScreen(subjectViewAll, subjectView);
-        group.getChildren().add(viewController);
-        
+        viewController.loadScreen(subjectViewAll, subjectView);  
+        viewController.setScreen(MainPresenter.subjectViewAll);
     }
 
     @FXML
     private void addNewSubjectAction(ActionEvent event) {
+        viewController.unloadScreen(subjectForm);
+        subjectFormView = new SubjectFormView();
+        viewController.loadScreen(subjectForm, subjectFormView);  
+        viewController.setScreen(MainPresenter.subjectForm);
     }
 
     @FXML
