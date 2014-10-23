@@ -11,6 +11,7 @@ import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import system.business.models.ClassSection;
 import system.business.models.Subject;
 import system.business.models.Teacher;
 
@@ -67,6 +68,22 @@ public class MainService {
     public void delete(Teacher teacher){
         this.et.begin();
         this.em.remove(teacher);
+        this.et.commit();
+    }
+    
+    public List<ClassSection> getAllSection(){
+        return this.em.createNamedQuery("ClassSection.findAll").getResultList();
+    }
+    
+    public void save(ClassSection classSection){
+        this.et.begin();
+        ClassSection merged = em.merge(classSection);
+        this.et.commit();
+    }
+    
+    public void delete(ClassSection classSection){
+        this.et.begin();
+        this.em.remove(classSection);
         this.et.commit();
     }
     

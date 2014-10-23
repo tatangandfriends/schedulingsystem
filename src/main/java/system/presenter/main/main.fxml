@@ -30,8 +30,8 @@
             </Menu>
             <Menu mnemonicParsing="false" onAction="#viewAllSectionAction" text="Section">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#viewAllSectionAction" text="View All" />
-                  <MenuItem mnemonicParsing="false" onAction="#addNewSectionAction" text="Add New" />
+                  <MenuItem fx:id="sectionViewAll" mnemonicParsing="false" onAction="#viewAllSectionAction" text="View All" />
+                  <MenuItem fx:id="sectionForm" mnemonicParsing="false" onAction="#addNewSectionAction" text="Add New" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Time">

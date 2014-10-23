@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="currrentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.views.section.SectionPresenter">
+   <children>
+      <TableView fx:id="sectionTableView" layoutX="61.0" layoutY="122.0" prefHeight="423.0" prefWidth="228.0">
+         <columns>
+            <TableColumn fx:id="sectionNameColumn" prefWidth="224.0" text="Class Section" />
+         </columns>
+      </TableView>
+      <Button fx:id="editButton" layoutX="282.0" layoutY="80.0" mnemonicParsing="false" onAction="#editButtonAction" prefHeight="25.0" prefWidth="43.0" text="Edit" />
+      <Button fx:id="removeButton" layoutX="352.0" layoutY="80.0" mnemonicParsing="false" onAction="#removeButtonAction" prefHeight="25.0" prefWidth="71.0" text="Remove" />
+      <Button fx:id="addNewButton" layoutX="55.0" layoutY="80.0" mnemonicParsing="false" onAction="#addNewButtonAction" text="Button" />
+   </children>
+</AnchorPane>

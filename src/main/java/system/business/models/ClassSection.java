@@ -16,6 +16,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -24,6 +26,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="class_section")
+@NamedQueries({
+@NamedQuery(name = "ClassSection.findAll", query = "SELECT cs FROM ClassSection cs")})
 public class ClassSection implements Serializable {
     private IntegerProperty id;
     private StringProperty sectionCode;
@@ -53,6 +57,9 @@ public class ClassSection implements Serializable {
     }
     public void setSectionCode(String sectionCode){
         this.sectionCode.set(sectionCode);
+    }
+    public StringProperty sectionCodeProperty(){
+        return sectionCode;
     }
 
 }

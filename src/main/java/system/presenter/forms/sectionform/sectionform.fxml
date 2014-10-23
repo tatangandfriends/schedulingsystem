@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="currentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.forms.sectionform.SectionFormPresenter">
+   <children>
+      <Button fx:id="saveSectionButton" layoutX="63.0" layoutY="123.0" mnemonicParsing="false" onAction="#saveSectionButton" text="Save" />
+      <TextField fx:id="classSectionField" layoutX="63.0" layoutY="67.0" promptText="ClassSection" />
+   </children>
+</AnchorPane>

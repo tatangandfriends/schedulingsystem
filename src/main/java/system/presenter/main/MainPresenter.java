@@ -15,10 +15,12 @@ import javafx.scene.Group;
 import javafx.scene.layout.AnchorPane;
 import javax.inject.Inject;
 import system.business.services.MainService;
+import system.presenter.forms.sectionform.SectionFormView;
 import system.presenter.forms.subjectform.SubjectFormView;
 import system.presenter.forms.teacherform.TeacherFormView;
 import system.presenter.main.screensfw.ControlledScreen;
 import system.presenter.main.screensfw.ViewController;
+import system.presenter.views.section.SectionView;
 import system.presenter.views.subject.SubjectView;
 import system.presenter.views.teacher.TeacherView;
 
@@ -46,6 +48,11 @@ public class MainPresenter implements Initializable, ControlledScreen {
     TeacherView teacherView;
     public static final String teacherForm = "teacherForm";
     TeacherFormView teacherFormView;
+    
+    public static final String sectionViewAll = "sectionViewAll";
+    SectionView sectionView;
+    public static final String sectionForm = "sectionForm";
+    SectionFormView sectionFormView;
     
     
     @Inject
@@ -104,10 +111,20 @@ public class MainPresenter implements Initializable, ControlledScreen {
 
     @FXML
     private void viewAllSectionAction(ActionEvent event) {
+        viewController.unloadScreen(sectionViewAll);
+        sectionView = new SectionView();
+        viewController.loadScreen(sectionViewAll, sectionView);  
+        viewController.setScreen(MainPresenter.sectionViewAll);
+        
     }
 
     @FXML
     private void addNewSectionAction(ActionEvent event) {
+        
+        viewController.unloadScreen(sectionForm);
+        sectionFormView = new SectionFormView();
+        viewController.loadScreen(sectionForm, sectionFormView);  
+        viewController.setScreen(MainPresenter.sectionForm);
     }
 
     @FXML
