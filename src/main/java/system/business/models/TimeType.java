@@ -15,45 +15,61 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 /**
  *
  * @author dennis
  */
 @Entity
-@Table(name="subject")
-public class Subject implements Serializable {
+@Table(name="timetype")
+public class TimeType implements Serializable {
     
     private IntegerProperty id;
     private StringProperty name;
-    private StringProperty code;
-    private StringProperty unit;
-
-
-    public Subject(){
+    private StringProperty timeStart;
+    private StringProperty timeEnd;
+    
+    
+    public TimeType(){
         this.id = new SimpleIntegerProperty();
         this.name = new SimpleStringProperty();
-        this.code = new SimpleStringProperty();
-        this.unit = new SimpleStringProperty();
-    }
-    
-    public Subject(String subName, String subCodeee, String Unit){
-        this();
-        this.name.set(subName);
-        this.code.set(subCodeee);
-        this.unit.set(Unit);
-        
+        this.timeStart = new SimpleStringProperty();
+        this.timeEnd = new SimpleStringProperty();
     }
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     public int getId(){
         return this.id.get();
     }
     public void setId(int id){
         this.id.set(id);
     }
+    
+    @Column(name = "name")
+    public String getName(){
+        return this.name.get();
+    }
+    
+    public void setName(String name){
+        this.name.set(name);
+    }
+    
+    @Column(name = "time_started")
+    public String getTimeStart(){
+        return this.timeStart.get();
+    }
+    
+    public void setTimeStart(String timeStart){
+        this.timeStart.set(timeStart);
+    }
+    
+    @Column(name = "time_ended")
+    public String getTimeEnd(){
+        return this.timeEnd.get();
+    }
+    public void setTimeEnd(String timeEnd){
+        this.timeEnd.set(timeEnd);
+    }
 
-   
 }
-

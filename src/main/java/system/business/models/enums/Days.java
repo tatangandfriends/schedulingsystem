@@ -4,14 +4,12 @@
  * and open the template in the editor.
  */
 
-package system.presenter.studentinput;
-
-import com.airhacks.afterburner.views.FXMLView;
+package system.business.models.enums;
 
 /**
  *
- * @author dennis
+ * @author Hadouken
  */
-public class StudentinputView extends FXMLView{
-    
+public enum Days {
+    MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY
 }

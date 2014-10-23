@@ -10,24 +10,17 @@ import java.io.Serializable;
 import java.util.List;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ListProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -37,20 +30,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="teacher")
-@NamedQueries({
-@NamedQuery(name = "Teacher.findAll", query = "SELECT te FROM Teacher te"),
-    @NamedQuery(name = "Teacher.findById", query = "SELECT te FROM Teacher te WHERE te.id = :id"),
-    @NamedQuery(name = "Teacher.findByFname", query = "SELECT te FROM Teacher te WHERE te.fname = :fname"),
-    @NamedQuery(name = "Teacher.findByLname", query = "SELECT te FROM Teacher te WHERE te.lname = :lname"),
-    @NamedQuery(name = "Teacher.findByTeacher", query = "SELECT te FROM Teacher te WHERE te.fname LIKE :fname OR te.lname LIKE :lname"),
-    @NamedQuery(name = "Teacher.byDepartment", query = "SELECT s FROM Teacher s WHERE s.department = :department")    
-})
 public class Teacher implements Serializable {
 
     private IntegerProperty id;
     private StringProperty fname;
     private StringProperty lname;
-    private ObjectProperty<Department> department;
     private ListProperty<Subject> subjects;
     private ListProperty<Schedule> schedules;
     
@@ -60,7 +44,6 @@ public class Teacher implements Serializable {
         this.lname = new SimpleStringProperty();
         this.subjects= new SimpleListProperty<>();
         this.schedules = new SimpleListProperty<>();
-        this.department = new SimpleObjectProperty<>();
     }
     public Teacher(String fname, String lname){
         this();
@@ -91,16 +74,6 @@ public class Teacher implements Serializable {
         this.lname.set(lname);
     }
     
-    
-    @ManyToOne
-    @JoinColumn(name = "department")
-    
-    public Department getDepartment(){
-        return this.department.get();
-    }
-    public void setDepartment(Department department){
-        this.department.set(department);
-    }
     
     @OneToMany(mappedBy = "teacher")
     public List<Schedule> getSchedules(){

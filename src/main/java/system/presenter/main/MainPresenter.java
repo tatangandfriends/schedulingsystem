@@ -11,84 +11,95 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
+import javafx.scene.Group;
 import javafx.scene.layout.AnchorPane;
-import javax.inject.Inject;
-import system.business.services.StudentService;
-import system.presenter.studentinput.StudentinputPresenter;
-import system.presenter.studentinput.StudentinputView;
-import system.presenter.addstudent.AddStudPresenter;
-import system.presenter.addstudent.AddStudView;
-import system.presenter.course.CourseView;
-import system.presenter.subject.SubjectView;
-import system.presenter.teacher.TeacherView;
-import system.presenter.timeandroom.TimeAndRoomView;
+import system.presenter.main.screensfw.ControlledScreen;
+import system.presenter.main.screensfw.ViewController;
+import system.presenter.views.subject.SubjectView;
 
-
-
-public class MainPresenter implements Initializable{
+/**
+ * FXML Controller class
+ *
+ * @author Hadouken
+ */
+public class MainPresenter implements Initializable, ControlledScreen {
     
     @FXML
-    private MenuBar menuBar;
+    private AnchorPane centerPane;
     
-    @FXML
-    private AnchorPane anchorPane;
+    ViewController viewController;
+    Group group;
     
-    @FXML
-    private MenuItem addStud;
-    
-    @FXML 
-    private MenuItem addTeach;
-    
-    @FXML
-    private MenuItem addTimeAndRoom;
-    
-    private AddStudPresenter addStudPresenter;
- 
-    private StudentinputPresenter studentInputPresenter;
-    
-
+     private static final String subjectViewAll = "subjectViewAll";
+     SubjectView subjectView;
     
     
-    @Inject
-    StudentService ss;
-    
+    /**
+     * Initializes the controller class.
+     */
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        viewController = new ViewController();
+        group = new Group();
+        centerPane.getChildren().add(group);
     }    
+
     @FXML
-    private void addStud(ActionEvent event){
-        anchorPane.getChildren().clear();
-        anchorPane.getChildren().add(new AddStudView().getView());
+    private void viewAllSubjectAction(ActionEvent event) {
+        subjectView = new SubjectView();
+        viewController.loadScreen(subjectViewAll, subjectView);
+        group.getChildren().add(viewController);
+        
     }
-     @FXML
-    private void addCourse(ActionEvent event){
-        anchorPane.getChildren().clear();
-        anchorPane.getChildren().add(new CourseView().getView());
-    }
+
     @FXML
-    private void studentList(ActionEvent event){
-        anchorPane.getChildren().clear();
-        anchorPane.getChildren().add(new StudentinputView().getView());
+    private void addNewSubjectAction(ActionEvent event) {
     }
+
     @FXML
-    private void addTeacher(ActionEvent event){
-        anchorPane.getChildren().clear();
-        anchorPane.getChildren().add(new TeacherView().getView());
+    private void viewAllTeacherAction(ActionEvent event) {
     }
+
     @FXML
-    private void addSubject(ActionEvent event){
-        anchorPane.getChildren().clear();
-        anchorPane.getChildren().add(new SubjectView().getView());
+    private void addNewTeacherAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void viewAllRoomAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void addNewRoomAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void viewAllSectionAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void addNewSectionAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void viewAllTimeAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void addNewTimeAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void viewAllSchedule(ActionEvent event) {
+    }
+
+    @FXML
+    private void addNewScheduleAction(ActionEvent event) {
+    }
+
+    @Override
+    public void setScreenParent(ViewController screenParent) {
+        viewController = screenParent;
     }
     
-    @FXML
-    private void addTimeAndRoom(ActionEvent event){
-        anchorPane.getChildren().clear();
-        anchorPane.getChildren().add(new TimeAndRoomView().getView());
-    }
-   
     
-    
-}    
+}

@@ -21,12 +21,13 @@ package system;
  */
 
 import javafx.application.Application;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javax.inject.Inject;
+import system.business.services.MainService;
 import system.presenter.main.MainView;
-import system.presenter.schedule.ScheduleView;
+
 
 /**
  *
@@ -34,9 +35,14 @@ import system.presenter.schedule.ScheduleView;
  */
 public class App extends Application {
 
+    
+    
     @Override
      public void start(Stage stage) throws Exception {
-        ScheduleView mainView = new ScheduleView();        
+         
+        
+         
+        MainView mainView = new  MainView();        
         Scene scene = new Scene(mainView.getView()); 
         stage.initStyle(StageStyle.DECORATED);
         stage.setScene(scene);

@@ -6,43 +6,50 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="400.0" prefWidth="718.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.main.MainPresenter">
-    <children>
-        <MenuBar fx:id="menuBar" layoutY="7.0" prefHeight="39.0" prefWidth="728.0">
-            <menus>
-            <Menu mnemonicParsing="false" text="User Account">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.main.MainPresenter">
+   <top>
+      <MenuBar prefHeight="40.0" prefWidth="1136.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Subject">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#viewAllSubjectAction" text="View All" />
+                  <MenuItem mnemonicParsing="false" onAction="#addNewSubjectAction" text="Add New" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Teacher">
                <items>
-                  <MenuItem fx:id="addStud1" mnemonicParsing="false" onAction="#addStud" text="Admin" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewAllTeacherAction" text="View All" />
+                  <MenuItem mnemonicParsing="false" onAction="#addNewTeacherAction" text="Add New" />
                </items>
             </Menu>
-                <Menu mnemonicParsing="false" text="Student">
-                    <items>
-                        <MenuItem fx:id="addStud" mnemonicParsing="false" onAction="#addStud" text="Add Student" />
-              
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Teacher's Information">
-                    <items>
-                        <MenuItem fx:id="addTeach" mnemonicParsing="false" onAction="#addTeacher" text="Add Teacher" />
-                    </items>
-                </Menu>
-            <Menu mnemonicParsing="false" text="Subject's Information">
+            <Menu mnemonicParsing="false" text="Room">
                <items>
-                  <MenuItem fx:id="addSub" mnemonicParsing="false" onAction="#addSubject" text="Add Subject" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewAllRoomAction" text="View All" />
+                  <MenuItem mnemonicParsing="false" onAction="#addNewRoomAction" text="Add New" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" onAction="#viewAllSectionAction" text="Section">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#viewAllSectionAction" text="View All" />
+                  <MenuItem mnemonicParsing="false" onAction="#addNewSectionAction" text="Add New" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Time">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#viewAllTimeAction" text="View All" />
+                  <MenuItem mnemonicParsing="false" onAction="#addNewTimeAction" text="Add New" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Schedule">
                <items>
-                  <MenuItem fx:id="addSched" mnemonicParsing="false" text="Add New Schedule" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewAllSchedule" text="View All" />
+                  <MenuItem mnemonicParsing="false" onAction="#addNewScheduleAction" text="Add New" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Time and Room">
-               <items>
-                  <MenuItem fx:id="addTimeAndRoom" mnemonicParsing="false" onAction="#addTimeAndRoom" text="Add New Time and Room" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="About Us" />
-            </menus>
-        </MenuBar>
-    </children>
-</AnchorPane>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <AnchorPane fx:id="centerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1136.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

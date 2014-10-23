@@ -6,58 +6,53 @@
 
 package system.business.models;
 
+import java.io.Serializable;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author dennis
  */
-public class UserAccounts {
+@Entity
+@Table(name="class_section")
+public class ClassSection implements Serializable {
     private IntegerProperty id;
-    private StringProperty username;
-    private StringProperty password;
+    private StringProperty sectionCode;
+    private ListProperty<Subject> subjects;
     
     
-    public UserAccounts(){
+    public ClassSection(){
         this.id = new SimpleIntegerProperty();
-        this.username = new SimpleStringProperty();
-        this.password = new SimpleStringProperty();
+        this.sectionCode = new SimpleStringProperty();
     }
-    
-    
+    public ClassSection(String sectionCode){
+        this();
+        this.sectionCode.set(sectionCode);
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    public Integer getId() {
-        return id.get();
+    public int getId(){
+        return this.id.get();
+    }
+    public void setId(int id){
+        this.id.set(id);
+    }
+    
+    
+    public String getSectionCode(){
+        return this.sectionCode.get();
+    }
+    public void setSectionCode(String sectionCode){
+        this.sectionCode.set(sectionCode);
     }
 
-    public void setId(Integer id) {
-        this.id.set(id);
-    }   
-    
-    @Column(name="username")
-    public String getUsername(){
-       return this.username.get();
-    }
-    
-    public void setUsername(String username){
-        this.username.set(username);
-    }
-    
-    @Column(name="password")
-    public String getPassword(){
-       return this.password.get();
-    }
-    
-    public void setPassword(String password){
-        this.password.set(password);
-    }
 }

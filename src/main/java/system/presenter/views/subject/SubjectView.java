@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package system.presenter.subject;
+package system.presenter.views.subject;
 
 import com.airhacks.afterburner.views.FXMLView;
 
 /**
  *
- * @author BlackBox
+ * @author Hadouken
  */
-public class SubjectView extends FXMLView {
+public class SubjectView extends FXMLView{
     
 }
