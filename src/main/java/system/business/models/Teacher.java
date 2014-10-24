@@ -88,7 +88,7 @@ public class Teacher implements Serializable {
         this.schedules.set(schedule);
     }
     
-     public StringProperty firstNameProperty(){
+    public StringProperty firstNameProperty(){
         return fname;
     }
     

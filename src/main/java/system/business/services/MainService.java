@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import system.business.models.ClassSection;
+import system.business.models.Room;
 import system.business.models.Subject;
 import system.business.models.Teacher;
 
@@ -87,5 +88,20 @@ public class MainService {
         this.et.commit();
     }
     
+    public List<Room> getAllRooms(){
+        return this.em.createNamedQuery("Room.findAll").getResultList();
+    }
+    
+    public void save(Room room){
+        this.et.begin();
+        Room merged = em.merge(room);
+        this.et.commit();
+    }
+    
+    public void delete(Room room){
+        this.et.begin();
+        this.em.remove(room);
+        this.et.commit();
+    }
     
 }

@@ -8,11 +8,14 @@ package system.business.models;
 
 import java.io.Serializable;
 import javafx.beans.property.*;
+import javafx.beans.value.ObservableListValue;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -28,6 +31,7 @@ public class TimeType implements Serializable {
     private StringProperty name;
     private StringProperty timeStart;
     private StringProperty timeEnd;
+    private ObjectProperty<Schedule> schedule;
     
     
     public TimeType(){
@@ -70,6 +74,15 @@ public class TimeType implements Serializable {
     }
     public void setTimeEnd(String timeEnd){
         this.timeEnd.set(timeEnd);
+    }
+    
+    @OneToOne
+    @JoinColumn(name="time_id")
+    public Schedule getSchedule(){
+        return this.schedule.get();
+    }
+    public void setSchedule(Schedule schedule){
+        this.schedule.set(schedule);
     }
 
 }

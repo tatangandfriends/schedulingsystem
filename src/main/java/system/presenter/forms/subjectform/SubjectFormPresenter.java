@@ -81,7 +81,7 @@ public class SubjectFormPresenter implements Initializable, ControlledScreen {
         }
         sub.setName(nameField.textProperty().get());
         sub.setCode(codeField.textProperty().get());
-        sub.setUnit(codeField.textProperty().get());
+        sub.setUnit(unitField.textProperty().get());
         service.save(sub);
         viewController.unloadScreen(MainPresenter.subjectViewAll);
         SubjectView subjectView = new SubjectView();

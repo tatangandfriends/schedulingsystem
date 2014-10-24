@@ -9,15 +9,19 @@ package system.business.models;
 import java.io.Serializable;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ListProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -32,6 +36,7 @@ public class ClassSection implements Serializable {
     private IntegerProperty id;
     private StringProperty sectionCode;
     private ListProperty<Subject> subjects;
+    private ObjectProperty<Schedule> schedule;
     
     
     public ClassSection(){
@@ -61,5 +66,16 @@ public class ClassSection implements Serializable {
     public StringProperty sectionCodeProperty(){
         return sectionCode;
     }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "schedule_id")
+    public Schedule getSchedule(){
+        return this.schedule.get();
+    }
+    
+    public void setSchedule(Schedule schedule){
+        this.schedule.set(schedule);
+    }
+    
 
 }

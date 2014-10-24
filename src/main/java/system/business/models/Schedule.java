@@ -33,6 +33,7 @@ public class Schedule implements Serializable {
     private ObjectProperty<Room> room;
     private ObjectProperty<Subject> subject;
     private ObjectProperty<TimeType> time;
+    private ObjectProperty<Schedule> schedule;
     
     public Schedule(){
         this.id = new SimpleIntegerProperty();
@@ -89,5 +90,14 @@ public class Schedule implements Serializable {
     
     public void setDay(Days day){
         this.day = day;
+    }
+    
+    @OneToOne
+    @JoinColumn(name="schedule_id")
+    public Schedule getSchedule(){
+        return this.schedule.get();
+    }
+    public void setSchedule(Schedule schedule){
+        this.schedule.set(schedule);
     }
 }

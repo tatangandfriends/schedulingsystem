@@ -15,11 +15,13 @@ import javafx.scene.Group;
 import javafx.scene.layout.AnchorPane;
 import javax.inject.Inject;
 import system.business.services.MainService;
+import system.presenter.forms.roomform.RoomFormView;
 import system.presenter.forms.sectionform.SectionFormView;
 import system.presenter.forms.subjectform.SubjectFormView;
 import system.presenter.forms.teacherform.TeacherFormView;
 import system.presenter.main.screensfw.ControlledScreen;
 import system.presenter.main.screensfw.ViewController;
+import system.presenter.views.room.RoomView;
 import system.presenter.views.section.SectionView;
 import system.presenter.views.subject.SubjectView;
 import system.presenter.views.teacher.TeacherView;
@@ -53,6 +55,11 @@ public class MainPresenter implements Initializable, ControlledScreen {
     SectionView sectionView;
     public static final String sectionForm = "sectionForm";
     SectionFormView sectionFormView;
+    
+     public static final String roomViewAll = "roomViewAll";
+    RoomView roomView;
+    public static final String roomForm = "roomForm";
+    RoomFormView roomFormView;
     
     
     @Inject
@@ -100,13 +107,21 @@ public class MainPresenter implements Initializable, ControlledScreen {
         viewController.loadScreen(teacherForm, teacherFormView);  
         viewController.setScreen(MainPresenter.teacherForm);
     }
-
+    
     @FXML
     private void viewAllRoomAction(ActionEvent event) {
+        viewController.unloadScreen(roomViewAll);
+        roomView = new RoomView();
+        viewController.loadScreen(roomViewAll, roomView);  
+        viewController.setScreen(MainPresenter.roomViewAll);
     }
-
+    
     @FXML
     private void addNewRoomAction(ActionEvent event) {
+        viewController.unloadScreen(roomForm);
+        roomFormView = new RoomFormView();
+        viewController.loadScreen(roomForm, roomFormView);  
+        viewController.setScreen(MainPresenter.roomForm);
     }
 
     @FXML

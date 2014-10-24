@@ -8,12 +8,18 @@ package system.business.models;
 
 import java.io.Serializable;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.StringProperty;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,9 +28,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="room")
+@NamedQueries({
+@NamedQuery(name = "Room.findAll", query = "SELECT r FROM Room r")})
 public class Room implements Serializable {
     private IntegerProperty id;
     private IntegerProperty roomNumber;
+    private ObjectProperty<Schedule> schedule;
 
     public Room(){
         this.id = new SimpleIntegerProperty();
@@ -51,5 +60,17 @@ public class Room implements Serializable {
     public void setRoomNumber(int roomNumber){
         this.roomNumber.set(roomNumber);
     }
+    
+    public IntegerProperty roomNumberProperty(){
+        return roomNumber;
+    }
 
+    @OneToOne
+    @JoinColumn(name="room_id")
+    public Schedule getSchedule(){
+        return this.schedule.get();
+    }
+    public void setSchedule(Schedule schedule){
+        this.schedule.set(schedule);
+    }
 }
