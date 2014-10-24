@@ -6,10 +6,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1136.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="system.presenter.views.room.RoomPresenter">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.views.room.RoomPresenter">
    <children>
-      <TableView fx:id="teacherTableView" layoutX="107.0" layoutY="126.0" prefHeight="423.0" prefWidth="200.0">
+      <TableView fx:id="roomTableView" layoutX="107.0" layoutY="126.0" prefHeight="423.0" prefWidth="200.0">
          <columns>
             <TableColumn fx:id="roomNameColumn" prefWidth="202.0" text="Room Number" />
          </columns>

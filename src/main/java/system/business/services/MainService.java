@@ -13,8 +13,10 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import system.business.models.ClassSection;
 import system.business.models.Room;
+import system.business.models.Schedule;
 import system.business.models.Subject;
 import system.business.models.Teacher;
+import system.business.models.TimeType;
 
 /**
  *
@@ -39,6 +41,10 @@ public class MainService {
         return this.et;
     }
     
+    public List<Schedule> getAllSchedules(){
+        return this.em.createNamedQuery("Schedule.findAll").getResultList();
+    }
+   
     public List<Subject> getAllSubjects(){
         return this.em.createNamedQuery("Subjects.findAll").getResultList();
     }
@@ -101,6 +107,22 @@ public class MainService {
     public void delete(Room room){
         this.et.begin();
         this.em.remove(room);
+        this.et.commit();
+    }
+    
+    public List<TimeType> getAllTime(){
+        return this.em.createNamedQuery("TimeType.findAll").getResultList();
+    }
+    
+    public void save(TimeType timeType){
+        this.et.begin();
+        TimeType merged = em.merge(timeType);
+        this.et.commit();
+    }
+    
+    public void delete(TimeType timeType){
+        this.et.begin();
+        this.em.remove(timeType);
         this.et.commit();
     }
     

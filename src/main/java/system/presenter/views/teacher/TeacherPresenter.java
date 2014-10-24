@@ -8,7 +8,6 @@ package system.presenter.views.teacher;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,8 +21,6 @@ import system.presenter.main.screensfw.ControlledScreen;
 import system.presenter.main.screensfw.ViewController;
 import system.business.models.Teacher;
 import system.business.services.MainService;
-import system.presenter.forms.subjectform.SubjectFormPresenter;
-import system.presenter.forms.subjectform.SubjectFormView;
 import system.presenter.forms.teacherform.TeacherFormPresenter;
 import system.presenter.forms.teacherform.TeacherFormView;
 import system.presenter.main.MainPresenter;
@@ -80,8 +77,8 @@ public class TeacherPresenter implements Initializable, ControlledScreen {
         TeacherFormView tFv = new TeacherFormView();
         TeacherFormPresenter tFp = (TeacherFormPresenter) tFv.getPresenter();
         tFp.setTeacher(teacherTableView.getSelectionModel().getSelectedItem());        
-        viewController.loadScreen(MainPresenter.subjectForm, tFv);
-        viewController.setScreen(MainPresenter.subjectForm);
+        viewController.loadScreen(MainPresenter.teacherForm, tFv);
+        viewController.setScreen(MainPresenter.teacherForm);
     }
 
     @FXML

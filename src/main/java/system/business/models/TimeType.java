@@ -8,14 +8,13 @@ package system.business.models;
 
 import java.io.Serializable;
 import javafx.beans.property.*;
-import javafx.beans.value.ObservableListValue;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 
@@ -25,13 +24,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="timetype")
+@NamedQueries({
+@NamedQuery(name = "TimeType.findAll", query = "SELECT r FROM TimeType r")})
 public class TimeType implements Serializable {
-    
     private IntegerProperty id;
     private StringProperty name;
     private StringProperty timeStart;
     private StringProperty timeEnd;
-    private ObjectProperty<Schedule> schedule;
+
     
     
     public TimeType(){
@@ -76,13 +76,16 @@ public class TimeType implements Serializable {
         this.timeEnd.set(timeEnd);
     }
     
-    @OneToOne
-    @JoinColumn(name="time_id")
-    public Schedule getSchedule(){
-        return this.schedule.get();
+    public StringProperty nameProperty(){
+        return name;
     }
-    public void setSchedule(Schedule schedule){
-        this.schedule.set(schedule);
+    
+    public StringProperty timeStartProperty(){
+        return timeStart;
+    }
+    
+    public StringProperty timeEndProperty(){
+        return timeEnd;
     }
 
 }

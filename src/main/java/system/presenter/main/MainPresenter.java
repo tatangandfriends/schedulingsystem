@@ -19,12 +19,14 @@ import system.presenter.forms.roomform.RoomFormView;
 import system.presenter.forms.sectionform.SectionFormView;
 import system.presenter.forms.subjectform.SubjectFormView;
 import system.presenter.forms.teacherform.TeacherFormView;
+import system.presenter.forms.timeform.TimeFormView;
 import system.presenter.main.screensfw.ControlledScreen;
 import system.presenter.main.screensfw.ViewController;
 import system.presenter.views.room.RoomView;
 import system.presenter.views.section.SectionView;
 import system.presenter.views.subject.SubjectView;
 import system.presenter.views.teacher.TeacherView;
+import system.presenter.views.time.TimeView;
 
 /**
  * FXML Controller class
@@ -56,10 +58,15 @@ public class MainPresenter implements Initializable, ControlledScreen {
     public static final String sectionForm = "sectionForm";
     SectionFormView sectionFormView;
     
-     public static final String roomViewAll = "roomViewAll";
+    public static final String roomViewAll = "roomViewAll";
     RoomView roomView;
     public static final String roomForm = "roomForm";
     RoomFormView roomFormView;
+    
+    public static final String timeViewAll = "timeViewAll";
+    TimeView timeView;
+    public static final String timeForm = "timeForm";
+    TimeFormView timeFormView;
     
     
     @Inject
@@ -144,10 +151,20 @@ public class MainPresenter implements Initializable, ControlledScreen {
 
     @FXML
     private void viewAllTimeAction(ActionEvent event) {
+        viewController.unloadScreen(timeViewAll);
+        timeView = new TimeView();
+        viewController.loadScreen(timeViewAll, timeView);  
+        viewController.setScreen(MainPresenter.timeViewAll);
+        
     }
 
     @FXML
     private void addNewTimeAction(ActionEvent event) {
+        viewController.unloadScreen(timeForm);
+        timeFormView = new TimeFormView();
+        viewController.loadScreen(timeForm, timeFormView);  
+        viewController.setScreen(MainPresenter.timeForm);
+        
     }
 
     @FXML

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" fx:id="currentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1136.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="system.presenter.views.schedule.SchedulePresenter">
+   <children>
+      <TableView fx:id="scheduleTableView" layoutX="88.0" layoutY="128.0" prefHeight="411.0" prefWidth="619.0">
+         <columns>
+            <TableColumn fx:id="subjectNameColumn" prefWidth="108.0" text="Subject" />
+            <TableColumn fx:id="teacherNameColumn" prefWidth="119.0" text="Teacher" />
+            <TableColumn fx:id="roomNameColumn" prefWidth="110.0" text="Room" />
+            <TableColumn fx:id="timeNameColumn" prefWidth="126.0" text="Time" />
+            <TableColumn fx:id="sectionNameColumn" prefWidth="155.0" text="Section" />
+         </columns>
+      </TableView>
+      <Button fx:id="editActionButton" layoutX="460.0" layoutY="91.0" mnemonicParsing="false" onAction="#editActionButton" prefHeight="25.0" prefWidth="73.0" text="Edit" />
+      <Button fx:id="removeActionButton" layoutX="550.0" layoutY="91.0" mnemonicParsing="false" onAction="#removeActionButton" prefHeight="25.0" prefWidth="73.0" text="Remove" />
+   </children>
+</AnchorPane>

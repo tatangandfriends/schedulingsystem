@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.views.time.TimePresenter">
+   <children>
+      <TableView fx:id="timeTableView" layoutX="47.0" layoutY="110.0" prefHeight="375.0" prefWidth="445.0">
+        <columns>
+          <TableColumn fx:id="nameColumn" prefWidth="163.0" text="Name" />
+          <TableColumn fx:id="timeStartColumn" prefWidth="151.0" text="Time Start" />
+            <TableColumn fx:id="timeEndColumn" prefWidth="129.0" text="Time End" />
+        </columns>
+      </TableView>
+      <Button fx:id="editButton" layoutX="296.0" layoutY="73.0" mnemonicParsing="false" onAction="#editAction" text="Edit Button" />
+      <Button fx:id="removeButton" layoutX="394.0" layoutY="73.0" mnemonicParsing="false" onAction="#removeAction" text="Remove Button" />
+   </children>
+</AnchorPane>

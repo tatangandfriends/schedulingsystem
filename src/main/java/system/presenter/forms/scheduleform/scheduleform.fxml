@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.presenter.forms.scheduleform.ScheduleFormPresenter">
+   <children>
+      <Button fx:id="saveButton" layoutX="116.0" layoutY="300.0" mnemonicParsing="false" onAction="#saveButtonAction" text="Save" />
+      <ComboBox fx:id="subjectComboBox" layoutX="116.0" layoutY="48.0" prefWidth="150.0" promptText="Subject" />
+      <ComboBox fx:id="teacherComboBox" layoutX="116.0" layoutY="90.0" prefWidth="150.0" promptText="Teacher" />
+      <ComboBox fx:id="roomComboBox" layoutX="116.0" layoutY="132.0" prefWidth="150.0" promptText="Room" />
+      <ComboBox fx:id="timeComboBox" layoutX="116.0" layoutY="175.0" prefWidth="150.0" promptText="Time" />
+      <ComboBox fx:id="sectionComboBox" layoutX="116.0" layoutY="217.0" prefWidth="150.0" promptText="Section" />
+      <ComboBox fx:id="dayComboBox" layoutX="116.0" layoutY="259.0" prefWidth="150.0" promptText="Day" />
+      
+   </children>
+   
+</AnchorPane>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -36,8 +38,8 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Time">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#viewAllTimeAction" text="View All" />
-                  <MenuItem mnemonicParsing="false" onAction="#addNewTimeAction" text="Add New" />
+                  <MenuItem fx:id="timeViewAll" mnemonicParsing="false" onAction="#viewAllTimeAction" text="View All" />
+                  <MenuItem fx:id="timeForm" mnemonicParsing="false" onAction="#addNewTimeAction" text="Add New" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Schedule">

@@ -8,6 +8,7 @@ package system.presenter.views.room;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -57,7 +58,7 @@ public class RoomPresenter implements Initializable, ControlledScreen {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {        
-//        roomNameColumn.setCellValueFactory((cellData) -> cellData.getValue().roomNumberProperty());
+        roomNameColumn.setCellValueFactory((cellData) -> new SimpleStringProperty(""+cellData.getValue().roomNumberProperty()));
         updateData();
         removeButton.disableProperty().bind(roomTableView.getSelectionModel().selectedItemProperty().isNull());
         editButton.disableProperty().bind(roomTableView.getSelectionModel().selectedItemProperty().isNull());

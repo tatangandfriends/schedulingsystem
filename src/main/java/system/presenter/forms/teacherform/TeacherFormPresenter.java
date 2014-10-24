@@ -96,7 +96,5 @@ public class TeacherFormPresenter implements Initializable, ControlledScreen {
     public void setTeacher(Teacher teacher){
         this.teacher.set(teacher);
     }
-    
-    
-    
+  
 }

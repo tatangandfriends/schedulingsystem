@@ -16,6 +16,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import system.business.models.enums.Days;
 
@@ -25,6 +27,8 @@ import system.business.models.enums.Days;
  * @author dennis
  */
 @Entity
+@NamedQueries({
+@NamedQuery(name = "Schedule.findAll", query = "SELECT r FROM Schedule r")})
 public class Schedule implements Serializable {
     
     private IntegerProperty id;
@@ -33,14 +37,14 @@ public class Schedule implements Serializable {
     private ObjectProperty<Room> room;
     private ObjectProperty<Subject> subject;
     private ObjectProperty<TimeType> time;
-    private ObjectProperty<Schedule> schedule;
-    
+    private ObjectProperty<ClassSection> section;
     public Schedule(){
         this.id = new SimpleIntegerProperty();
         this.teacher = new SimpleObjectProperty<>();
         this.room = new SimpleObjectProperty<>();
         this.subject = new SimpleObjectProperty<>();
         this.time = new SimpleObjectProperty<>();
+        this.section = new SimpleObjectProperty<>();
     }
 
     @Id
@@ -93,11 +97,25 @@ public class Schedule implements Serializable {
     }
     
     @OneToOne
-    @JoinColumn(name="schedule_id")
-    public Schedule getSchedule(){
-        return this.schedule.get();
+    @JoinColumn(name="section")
+    public ClassSection getSection(){
+        return this.section.get();
     }
-    public void setSchedule(Schedule schedule){
-        this.schedule.set(schedule);
+    
+    public void setSection(ClassSection section){
+        this.section.set(section);
     }
+    
+    @OneToOne
+    @JoinColumn(name="subject")
+    public Subject getSubject(){
+       return this.subject.get();
+    }
+    
+    public void setSubject(Subject subject){
+        this.subject.set(subject);
+    }
+    
+    
+    
 }

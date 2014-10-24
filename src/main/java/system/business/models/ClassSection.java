@@ -35,8 +35,6 @@ import javax.persistence.Table;
 public class ClassSection implements Serializable {
     private IntegerProperty id;
     private StringProperty sectionCode;
-    private ListProperty<Subject> subjects;
-    private ObjectProperty<Schedule> schedule;
     
     
     public ClassSection(){
@@ -67,15 +65,5 @@ public class ClassSection implements Serializable {
         return sectionCode;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "schedule_id")
-    public Schedule getSchedule(){
-        return this.schedule.get();
-    }
-    
-    public void setSchedule(Schedule schedule){
-        this.schedule.set(schedule);
-    }
-    
 
 }

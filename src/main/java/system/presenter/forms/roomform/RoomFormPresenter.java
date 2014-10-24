@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javax.inject.Inject;
 import system.business.models.Room;
 import system.business.services.MainService;
@@ -35,13 +36,15 @@ public class RoomFormPresenter implements Initializable, ControlledScreen {
     ViewController viewController;
     @FXML
     private TextField roomNumberField;
-    @FXML
-    private Button saveSectionButton;
     
     private ObjectProperty<Room> room;
     
     @Inject
     MainService service;
+    @FXML
+    private AnchorPane currentPane;
+    @FXML
+    private Button saveRoomButton;
     
     /**
      * Initializes the controller class.
@@ -52,8 +55,8 @@ public class RoomFormPresenter implements Initializable, ControlledScreen {
     public void initialize(URL url, ResourceBundle rb) {
         setRoom(new SimpleObjectProperty<>());
         getRoom().addListener((ObservableValue<? extends Room> observable, Room oldValue, Room newValue) -> {
-            roomNumberField.setText(Integer.toString(newValue.getRoomNumber()));
-            saveSectionButton.setText("Update");
+            roomNumberField.setText(newValue.getRoomNumber()+ "");
+            saveRoomButton.setText("Update");
         });
         
         
